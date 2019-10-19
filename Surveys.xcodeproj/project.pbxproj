@@ -13,6 +13,25 @@
 		185725CB235A822100134279 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 185725CA235A822100134279 /* Assets.xcassets */; };
 		185725CE235A822100134279 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 185725CC235A822100134279 /* LaunchScreen.storyboard */; };
 		185725D9235A822100134279 /* SurveysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185725D8235A822100134279 /* SurveysTests.swift */; };
+		18F6AD18235AE5E900596A6D /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD03235AE5E900596A6D /* Survey.swift */; };
+		18F6AD19235AE5E900596A6D /* Paging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD04235AE5E900596A6D /* Paging.swift */; };
+		18F6AD1A235AE5E900596A6D /* OauthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD05235AE5E900596A6D /* OauthToken.swift */; };
+		18F6AD1B235AE5E900596A6D /* DynamicValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD06235AE5E900596A6D /* DynamicValue.swift */; };
+		18F6AD1C235AE5E900596A6D /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD07235AE5E900596A6D /* CustomError.swift */; };
+		18F6AD1D235AE5E900596A6D /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD09235AE5E900596A6D /* URL+Extension.swift */; };
+		18F6AD1E235AE5E900596A6D /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD0A235AE5E900596A6D /* URLRequest+Extension.swift */; };
+		18F6AD1F235AE5E900596A6D /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD0C235AE5E900596A6D /* Networking.swift */; };
+		18F6AD20235AE5E900596A6D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD0D235AE5E900596A6D /* Result.swift */; };
+		18F6AD21235AE5E900596A6D /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD0E235AE5E900596A6D /* Resource.swift */; };
+		18F6AD22235AE5E900596A6D /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD0F235AE5E900596A6D /* Path.swift */; };
+		18F6AD23235AE5E900596A6D /* SurveyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD11235AE5E900596A6D /* SurveyService.swift */; };
+		18F6AD24235AE5E900596A6D /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD12235AE5E900596A6D /* LoginService.swift */; };
+		18F6AD25235AE5E900596A6D /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD14235AE5E900596A6D /* Constant.swift */; };
+		18F6AD26235AE5E900596A6D /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD15235AE5E900596A6D /* Reachability.swift */; };
+		18F6AD27235AE5E900596A6D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD16235AE5E900596A6D /* Utils.swift */; };
+		18F6AD28235AE5E900596A6D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD17235AE5E900596A6D /* Configuration.swift */; };
+		18F6AD2B235AE61600596A6D /* SurverServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD29235AE61600596A6D /* SurverServiceTests.swift */; };
+		18F6AD2C235AE61600596A6D /* LoginServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD2A235AE61600596A6D /* LoginServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +55,25 @@
 		185725D4235A822100134279 /* SurveysTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SurveysTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		185725D8235A822100134279 /* SurveysTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveysTests.swift; sourceTree = "<group>"; };
 		185725DA235A822100134279 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18F6AD03235AE5E900596A6D /* Survey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
+		18F6AD04235AE5E900596A6D /* Paging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paging.swift; sourceTree = "<group>"; };
+		18F6AD05235AE5E900596A6D /* OauthToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OauthToken.swift; sourceTree = "<group>"; };
+		18F6AD06235AE5E900596A6D /* DynamicValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicValue.swift; sourceTree = "<group>"; };
+		18F6AD07235AE5E900596A6D /* CustomError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
+		18F6AD09235AE5E900596A6D /* URL+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
+		18F6AD0A235AE5E900596A6D /* URLRequest+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extension.swift"; sourceTree = "<group>"; };
+		18F6AD0C235AE5E900596A6D /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		18F6AD0D235AE5E900596A6D /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		18F6AD0E235AE5E900596A6D /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		18F6AD0F235AE5E900596A6D /* Path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
+		18F6AD11235AE5E900596A6D /* SurveyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyService.swift; sourceTree = "<group>"; };
+		18F6AD12235AE5E900596A6D /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		18F6AD14235AE5E900596A6D /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		18F6AD15235AE5E900596A6D /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		18F6AD16235AE5E900596A6D /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		18F6AD17235AE5E900596A6D /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		18F6AD29235AE61600596A6D /* SurverServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurverServiceTests.swift; sourceTree = "<group>"; };
+		18F6AD2A235AE61600596A6D /* LoginServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +115,10 @@
 		185725C2235A822000134279 /* Surveys */ = {
 			isa = PBXGroup;
 			children = (
+				18F6AD08235AE5E900596A6D /* Extension */,
+				18F6AD13235AE5E900596A6D /* Helper */,
+				18F6AD02235AE5E900596A6D /* Model */,
+				18F6AD0B235AE5E900596A6D /* Networking */,
 				18F6AD01235AE1F100596A6D /* Storyboard */,
 				18F6AD00235AE1CC00596A6D /* Supporting Files */,
 				185725C5235A822000134279 /* ViewController.swift */,
@@ -87,6 +129,8 @@
 		185725D7235A822100134279 /* SurveysTests */ = {
 			isa = PBXGroup;
 			children = (
+				18F6AD2A235AE61600596A6D /* LoginServiceTests.swift */,
+				18F6AD29235AE61600596A6D /* SurverServiceTests.swift */,
 				185725D8235A822100134279 /* SurveysTests.swift */,
 				185725DA235A822100134279 /* Info.plist */,
 			);
@@ -110,6 +154,59 @@
 				185725CC235A822100134279 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		18F6AD02235AE5E900596A6D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18F6AD03235AE5E900596A6D /* Survey.swift */,
+				18F6AD04235AE5E900596A6D /* Paging.swift */,
+				18F6AD05235AE5E900596A6D /* OauthToken.swift */,
+				18F6AD06235AE5E900596A6D /* DynamicValue.swift */,
+				18F6AD07235AE5E900596A6D /* CustomError.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18F6AD08235AE5E900596A6D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				18F6AD09235AE5E900596A6D /* URL+Extension.swift */,
+				18F6AD0A235AE5E900596A6D /* URLRequest+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		18F6AD0B235AE5E900596A6D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				18F6AD0C235AE5E900596A6D /* Networking.swift */,
+				18F6AD0D235AE5E900596A6D /* Result.swift */,
+				18F6AD0E235AE5E900596A6D /* Resource.swift */,
+				18F6AD0F235AE5E900596A6D /* Path.swift */,
+				18F6AD10235AE5E900596A6D /* Service */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		18F6AD10235AE5E900596A6D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				18F6AD11235AE5E900596A6D /* SurveyService.swift */,
+				18F6AD12235AE5E900596A6D /* LoginService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		18F6AD13235AE5E900596A6D /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				18F6AD14235AE5E900596A6D /* Constant.swift */,
+				18F6AD15235AE5E900596A6D /* Reachability.swift */,
+				18F6AD16235AE5E900596A6D /* Utils.swift */,
+				18F6AD17235AE5E900596A6D /* Configuration.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,8 +310,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18F6AD1C235AE5E900596A6D /* CustomError.swift in Sources */,
+				18F6AD1F235AE5E900596A6D /* Networking.swift in Sources */,
+				18F6AD1D235AE5E900596A6D /* URL+Extension.swift in Sources */,
+				18F6AD28235AE5E900596A6D /* Configuration.swift in Sources */,
+				18F6AD25235AE5E900596A6D /* Constant.swift in Sources */,
+				18F6AD1A235AE5E900596A6D /* OauthToken.swift in Sources */,
+				18F6AD1B235AE5E900596A6D /* DynamicValue.swift in Sources */,
+				18F6AD26235AE5E900596A6D /* Reachability.swift in Sources */,
+				18F6AD18235AE5E900596A6D /* Survey.swift in Sources */,
+				18F6AD19235AE5E900596A6D /* Paging.swift in Sources */,
+				18F6AD24235AE5E900596A6D /* LoginService.swift in Sources */,
 				185725C6235A822000134279 /* ViewController.swift in Sources */,
+				18F6AD27235AE5E900596A6D /* Utils.swift in Sources */,
+				18F6AD1E235AE5E900596A6D /* URLRequest+Extension.swift in Sources */,
+				18F6AD21235AE5E900596A6D /* Resource.swift in Sources */,
+				18F6AD22235AE5E900596A6D /* Path.swift in Sources */,
 				185725C4235A822000134279 /* AppDelegate.swift in Sources */,
+				18F6AD20235AE5E900596A6D /* Result.swift in Sources */,
+				18F6AD23235AE5E900596A6D /* SurveyService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +336,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18F6AD2C235AE61600596A6D /* LoginServiceTests.swift in Sources */,
+				18F6AD2B235AE61600596A6D /* SurverServiceTests.swift in Sources */,
 				185725D9235A822100134279 /* SurveysTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,14 +493,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NK54E5ZXTV;
 				INFOPLIST_FILE = "$(SRCROOT)/Surveys/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tamnguyen.Surveys;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -394,14 +512,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NK54E5ZXTV;
 				INFOPLIST_FILE = "$(SRCROOT)/Surveys/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tamnguyen.Surveys;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
