@@ -11,7 +11,7 @@ import UIKit
 let imageCache = NSCache<NSString, UIImage>()
 extension UIImageView {
     
-    func loadImageUsingCache(withUrl urlString : String) {
+    func loadImageUsingCache(withUrl urlString : String, resize: CGSize? = nil) {
         let url = URL(string: urlString)
         if url == nil {return}
         self.image = UIImage.imageWithColor(tintColor: .black)
@@ -31,8 +31,16 @@ extension UIImageView {
             
             DispatchQueue.main.async {
                 if let image = UIImage(data: data!) {
-                    imageCache.setObject(image, forKey: urlString as NSString)
-                    self.image = image
+                    
+                    if let size = resize {
+                        if let imageResize = image.resizeImageUsingVImage(size: size) {
+                            imageCache.setObject(imageResize, forKey: urlString as NSString)
+                            self.image = imageResize
+                        }
+                    } else {
+                        imageCache.setObject(image, forKey: urlString as NSString)
+                        self.image = image
+                    }
                 }
             }
             
