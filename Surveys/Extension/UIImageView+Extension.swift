@@ -15,7 +15,7 @@ extension UIImageView {
         let url = URL(string: urlString)
         if url == nil {return}
         
-        self.image = UIImage.imageWithColor(tintColor: .black)
+        self.image = UIImage.imageWithColor(tintColor: ThemeManager.color.main)
         
         // check cached image
         if let cachedImage = imageCache.object(forKey: urlString as NSString)  {

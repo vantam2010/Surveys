@@ -19,8 +19,8 @@ class SurveyViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        titleLabel.textColor = .white
-        descLabel.textColor = .white
+        titleLabel.textColor = ThemeManager.color.text
+        descLabel.textColor = ThemeManager.color.text
     }
     
     public var survey: Survey? {
@@ -33,7 +33,7 @@ class SurveyViewCell: UICollectionViewCell {
             if let cover_image_url = survey.cover_image_url, cover_image_url.isValidURL {
                 coverImageView.loadImageUsingCache(withUrl: "\(cover_image_url)\(Configuration.HIGH_RESOLUTION_IMAGE_CONFIG)", resize: self.frame.size)
             } else {
-                coverImageView.image = UIImage.imageWithColor(tintColor: .black)
+                coverImageView.image = UIImage.imageWithColor(tintColor: ThemeManager.color.main)
             }
         }
     }

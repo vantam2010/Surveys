@@ -90,18 +90,31 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="BFU-0f-hIh">
+                                <rect key="frame" x="197" y="482" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="eKF-ff-A3C" secondAttribute="trailing" id="4Px-IP-TMC"/>
                             <constraint firstItem="eKF-ff-A3C" firstAttribute="leading" secondItem="9Dp-9W-vko" secondAttribute="leading" id="8bb-tL-P5P"/>
+                            <constraint firstItem="BFU-0f-hIh" firstAttribute="centerY" secondItem="eKF-ff-A3C" secondAttribute="centerY" id="cQx-l1-0vL"/>
                             <constraint firstItem="nnF-yL-2b4" firstAttribute="top" secondItem="eKF-ff-A3C" secondAttribute="top" id="fp3-L8-p6t"/>
                             <constraint firstAttribute="bottom" secondItem="eKF-ff-A3C" secondAttribute="bottom" id="jSe-Ek-iNl"/>
+                            <constraint firstItem="BFU-0f-hIh" firstAttribute="centerX" secondItem="eKF-ff-A3C" secondAttribute="centerX" id="vrt-Sv-JJX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nnF-yL-2b4"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6U1-Sr-eg1"/>
+                    <navigationItem key="navigationItem" id="6U1-Sr-eg1">
+                        <barButtonItem key="leftBarButtonItem" image="refresh" id="Cgb-gK-kTg">
+                            <connections>
+                                <action selector="refreshButtonTapped" destination="9UO-xP-aYF" id="ag6-tp-672"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="menu" id="O7s-1V-Yzq"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="BFU-0f-hIh" id="p2p-7P-Gqp"/>
                         <outlet property="collectionView" destination="eKF-ff-A3C" id="hoe-gp-yet"/>
                         <outlet property="layout" destination="rBL-09-i9G" id="TmC-PH-QOA"/>
                     </connections>
@@ -111,4 +124,8 @@
             <point key="canvasLocation" x="1006" y="-603"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu" width="25" height="25"/>
+        <image name="refresh" width="25" height="25"/>
+    </resources>
 </document>

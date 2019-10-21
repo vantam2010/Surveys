@@ -15,7 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        setupGlobalAppearance()
+        
         return true
     }
 
@@ -41,6 +43,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func setupGlobalAppearance(){
+        UINavigationBar.appearance().tintColor = ThemeManager.color.text
+        
+        let attributes = [NSAttributedString.Key.foregroundColor: ThemeManager.color.text]
+        UINavigationBar.appearance().titleTextAttributes = attributes
+        
+        UINavigationBar.appearance().barStyle = .black
+        UINavigationBar.appearance().setBackgroundImage(UIImage.imageWithColor(tintColor: ThemeManager.color.main), for: .default)
+        UINavigationBar.appearance().shadowImage = UIImage.imageWithColor(tintColor: ThemeManager.color.main)
+    }
 }
 

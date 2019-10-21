@@ -69,10 +69,14 @@ struct SurveyListViewModel {
                     switch error {
                     case .resultNil:
                         if let page = self.dataSource?.paging.page {
-                            self.dataSource?.paging.page = page + 1
-                            
-                            // call next page when data return nil
-                            self.fetchData()
+                            if page == self.dataSource?.paging.per_page {
+                                self.onErrorHandling?(error)
+                            } else {
+                                self.dataSource?.paging.page = page + 1
+                                
+                                // call next page when data return nil
+                                self.fetchData()
+                            }
                         }
                     default:
                         self.onErrorHandling?(error)
