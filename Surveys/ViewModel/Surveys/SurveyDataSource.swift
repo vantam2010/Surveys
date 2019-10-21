@@ -10,22 +10,17 @@ import UIKit
 
 class GenericDataSource<T> : NSObject {
     var data: DynamicValue<[T]> = DynamicValue([])
+    var paging: Paging = Paging.init(page: 1, per_page: 10)
+    var isLoading = false
+    var delegate: SurveyDataSourceDelegate?
 }
 
-class SurveyDataSource: GenericDataSource<Survey> {
-    
-    private lazy var indicator: CustomImagePageControl = {
-        let con = CustomImagePageControl()
-        con.tintColor = .clear
-        con.pageIndicatorTintColor = .clear
-        con.currentPageIndicatorTintColor = .clear
-        con.transform = CGAffineTransform(rotationAngle: CGFloat.pi/2)
-        con.currentPage = 0
-        con.numberOfPages = 20
-        return con
-    }()
-    
+protocol SurveyDataSourceDelegate {
+    func loadMore()
+    func changeCurrentPage(_ index: Int)
 }
+
+class SurveyDataSource: GenericDataSource<Survey> {}
 
 // MARK: - Extensions
 extension SurveyDataSource: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -42,12 +37,6 @@ extension SurveyDataSource: UICollectionViewDataSource, UICollectionViewDelegate
                 cell.survey = survey
             }
             
-            if indexPath.row%2 == 0 {
-                cell.backgroundColor = .black
-            } else {
-                cell.backgroundColor = .gray
-            }
-            
             return cell
         } else {
             return UICollectionViewCell()
@@ -55,9 +44,11 @@ extension SurveyDataSource: UICollectionViewDataSource, UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        if viewModel.shouldLoadMore(indexPath) {
-//            viewModel.loadMore()
-//        }
+        if data.value.count - 1 == indexPath.row {
+            if let delegate = delegate {
+                delegate.loadMore()
+            }
+        }
     }
 }
 
@@ -71,6 +62,8 @@ extension SurveyDataSource: UICollectionViewDelegateFlowLayout {
         let offsetX = scrollView.contentOffset.y
         let height = scrollView.bounds.size.height
         let currentPage = Int(ceil(offsetX/height))
-        indicator.currentPage = currentPage
+        if let delegate = delegate {
+            delegate.changeCurrentPage(currentPage)
+        }
     }
 }

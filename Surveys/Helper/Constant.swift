@@ -15,8 +15,10 @@ public enum ErrorResult<CustomError>: Error {
     case unauthorized
     case internalServerError
     case custom(CustomError)
+    case resultNil
     case other
     case missingService
+    case missingPaging
 }
 
 

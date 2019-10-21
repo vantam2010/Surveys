@@ -13,6 +13,17 @@ class SurveysViewController: UIViewController {
     @IBOutlet weak var collectionView : UICollectionView!
     @IBOutlet weak  var layout: UICollectionViewFlowLayout!
     
+    private lazy var indicator: CustomImagePageControl = {
+        let con = CustomImagePageControl()
+        con.tintColor = .clear
+        con.pageIndicatorTintColor = .clear
+        con.currentPageIndicatorTintColor = .clear
+        con.transform = CGAffineTransform(rotationAngle: CGFloat.pi/2)
+        con.currentPage = 0
+        con.numberOfPages = 20
+        return con
+    }()
+    
     let dataSource = SurveyDataSource()
     var service : LoginService!
     
