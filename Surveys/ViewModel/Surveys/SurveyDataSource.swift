@@ -10,7 +10,7 @@ import UIKit
 
 class GenericDataSource<T> : NSObject {
     var data: DynamicValue<[T]> = DynamicValue([])
-    var paging: Paging = Paging.init(page: 1, per_page: 10)
+    var paging: Paging = Paging.init(page: 1, per_page: 10, max_item: 20)
     var isLoading = false
     var delegate: SurveyDataSourceDelegate?
 }

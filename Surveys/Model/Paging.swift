@@ -9,11 +9,13 @@
 import Foundation
 
 struct Paging {
-    var page = 1
-    var per_page = 10
+    var page: Int
+    var per_page: Int
+    var max_item: Int
     
-    init(page: Int, per_page: Int) {
+    init(page: Int, per_page: Int, max_item: Int) {
         self.page = page
         self.per_page = per_page
+        self.max_item = max_item
     }
 }

@@ -14,11 +14,16 @@ extension UIImageView {
     func loadImageUsingCache(withUrl urlString : String, resize: CGSize? = nil) {
         let url = URL(string: urlString)
         if url == nil {return}
+        
         self.image = UIImage.imageWithColor(tintColor: .black)
         
         // check cached image
         if let cachedImage = imageCache.object(forKey: urlString as NSString)  {
-            self.image = cachedImage
+            if let size = resize {
+                self.image = cachedImage.resizeImageUsingVImage(size: size)
+            } else {
+                self.image = cachedImage
+            }
             return
         }
         
@@ -31,12 +36,9 @@ extension UIImageView {
             
             DispatchQueue.main.async {
                 if let image = UIImage(data: data!) {
-                    
                     if let size = resize {
-                        if let imageResize = image.resizeImageUsingVImage(size: size) {
-                            imageCache.setObject(imageResize, forKey: urlString as NSString)
-                            self.image = imageResize
-                        }
+                        imageCache.setObject(image, forKey: urlString as NSString)
+                        self.image = image.resizeImageUsingVImage(size: size)
                     } else {
                         imageCache.setObject(image, forKey: urlString as NSString)
                         self.image = image

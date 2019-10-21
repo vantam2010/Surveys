@@ -31,7 +31,7 @@ class SurveyViewCell: UICollectionViewCell {
             descLabel.text = survey.description
             
             if let cover_image_url = survey.cover_image_url, cover_image_url.isValidURL {
-                coverImageView.loadImageUsingCache(withUrl: "\(cover_image_url)l", resize: self.frame.size)
+                coverImageView.loadImageUsingCache(withUrl: "\(cover_image_url)\(Configuration.HIGH_RESOLUTION_IMAGE_CONFIG)", resize: self.frame.size)
             } else {
                 coverImageView.image = UIImage.imageWithColor(tintColor: .black)
             }

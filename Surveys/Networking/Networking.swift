@@ -10,7 +10,7 @@ import Foundation
 
 struct Networking {
     
-    static let shared = Networking.init(baseUrl: Configuration.Endpoints)
+    static let shared = Networking.init(baseUrl: Configuration.BASE_URL)
     
     private var baseUrl: String
     public var commonParams: JSON = [:]
