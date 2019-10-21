@@ -13,12 +13,11 @@ struct SurveyListViewModel {
     weak var dataSource: GenericDataSource<Survey>?
     weak var service: SurveyServiceProtocol?
     
-    var onErrorHandling : ((ErrorResult<CustomError>?) -> Void)?
+    var onErrorHandling: ((ErrorResult<CustomError>?) -> Void)?
     
-    init(service: SurveyServiceProtocol = SurveyService.shared, dataSource : GenericDataSource<Survey>?) {
+    init(service: SurveyServiceProtocol = SurveyService.shared, dataSource: GenericDataSource<Survey>?) {
         self.dataSource = dataSource
         self.service = service
-        self.dataSource?.delegate = self
     }
     
     func fetchData() {
@@ -58,29 +57,20 @@ struct SurveyListViewModel {
                         self.dataSource?.paging.page = page + 1
                     }
                 } else if let error = result.error {
-                    switch error {
-                    case .resultNil:
-                        #warning("Need contact with back end team, why page 3 return empty and page 4 to 10 return nil")
-                        if let page = self.dataSource?.paging.page {
-                            self.dataSource?.paging.page = page + 1
-                        }
-                    default:
-                        self.onErrorHandling?(error)
-                    }
+                    self.onErrorHandling?(error)
+//                    switch error {
+//                    case .resultNil:
+//                        #warning("Need contact with back end team, why page 3 return empty and page 4 to 10 return nil")
+//                        if let page = self.dataSource?.paging.page {
+//                            self.dataSource?.paging.page = page + 1
+//                        }
+//                    default:
+//                        self.onErrorHandling?(error)
+//                    }
                 }
             }
         }
     }
 }
 
-extension SurveyListViewModel: SurveyDataSourceDelegate {
-    func loadMore() {
-        fetchData()
-    }
-    
-    func changeCurrentPage(_ index: Int) {
-//        currentPage
-    }
-    
-    
-}
+

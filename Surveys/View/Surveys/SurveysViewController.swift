@@ -12,17 +12,7 @@ class SurveysViewController: UIViewController {
     
     @IBOutlet weak var collectionView : UICollectionView!
     @IBOutlet weak  var layout: UICollectionViewFlowLayout!
-    
-    private lazy var indicator: CustomImagePageControl = {
-        let con = CustomImagePageControl()
-        con.tintColor = .clear
-        con.pageIndicatorTintColor = .clear
-        con.currentPageIndicatorTintColor = .clear
-        con.transform = CGAffineTransform(rotationAngle: CGFloat.pi/2)
-        con.currentPage = 0
-        con.numberOfPages = 20
-        return con
-    }()
+    var pageControl: CustomImagePageControl!
     
     let dataSource = SurveyDataSource()
     var service : LoginService!
@@ -48,11 +38,20 @@ class SurveysViewController: UIViewController {
         
         dataSource.data.addAndNotify(observer: self) { [weak self] _ in
             self?.collectionView.reloadData()
+            if let numberOfPages = self?.viewModel.dataSource?.data.value.count {
+                if let pageControl = self?.pageControl {
+                    pageControl.numberOfPages = numberOfPages
+                }
+            }
         }
+        
+        viewModel.dataSource?.delegate = self
         
         viewModel.onErrorHandling = { error in
             print(error)
         }
+        
+        setupPageControl()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,6 +63,19 @@ class SurveysViewController: UIViewController {
         } else {
             viewModel.fetchData()
         }
+    }
+    
+    private func setupPageControl() {
+        pageControl = CustomImagePageControl()
+        pageControl.tintColor = .clear
+        pageControl.pageIndicatorTintColor = .clear
+        pageControl.currentPageIndicatorTintColor = .clear
+        pageControl.transform = CGAffineTransform(rotationAngle: CGFloat.pi/2)
+        pageControl.currentPage = 1
+        pageControl.numberOfPages = 10
+        pageControl.frame = CGRect.init(x: view.frame.width - 50, y: (view.frame.height-collectionView.frame.height)/2, width: 50, height: collectionView.frame.height)
+        pageControl.backgroundColor = .red
+        view.addSubview(pageControl)
     }
     
     private func login() {
@@ -82,5 +94,15 @@ class SurveysViewController: UIViewController {
                 }
             }
         }
+    }
+}
+
+extension SurveysViewController: SurveyDataSourceDelegate {
+    func loadMore() {
+        viewModel.fetchData()
+    }
+    
+    func changeCurrentPage(_ index: Int) {
+        pageControl.currentPage = index
     }
 }
