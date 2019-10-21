@@ -6,7 +6,7 @@
 //  Copyright © 2019 TamNguyen. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public class Utils {
     public static func getErrorMessage(error: Error?) -> String {
@@ -30,5 +30,13 @@ public class Utils {
         }
         
         return errorMessage
+    }
+    
+    public static func visibleViewController() -> UIViewController? {
+        let appDelegate = UIApplication.shared.delegate
+        if let window = appDelegate!.window {
+            return window?.visibleViewController
+        }
+        return nil
     }
 }

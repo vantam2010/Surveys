@@ -61,26 +61,12 @@ struct SurveyListViewModel {
                     if value.count > 0 {
                         self.dataSource?.data.value += value
                     } else {
-                        // call next page when data return empty
-                        self.fetchData()
+                        // result is empty
+                        self.onErrorHandling?(ErrorResult.resultNilOrEmpty)
                     }
                     
                 } else if let error = result.error {
-                    switch error {
-                    case .resultNil:
-                        if let page = self.dataSource?.paging.page {
-                            if page == self.dataSource?.paging.per_page {
-                                self.onErrorHandling?(error)
-                            } else {
-                                self.dataSource?.paging.page = page + 1
-                                
-                                // call next page when data return nil
-                                self.fetchData()
-                            }
-                        }
-                    default:
-                        self.onErrorHandling?(error)
-                    }
+                    self.onErrorHandling?(error)
                 }
             }
         }

@@ -60,7 +60,7 @@ class SurveysViewController: UIViewController {
         
         viewModel.onErrorHandling = { [weak self] error in
             guard let self = self else {return}
-            print(error)
+            NotificationManager.shared.showError(Utils.getErrorMessage(error: error))
             
             if self.activityIndicatorView.isAnimating {
                 self.activityIndicatorView.isHidden = true
@@ -108,7 +108,7 @@ class SurveysViewController: UIViewController {
                         self?.viewModel.fetchData()
                     }
                 } else if let error = result.error {
-                    print(error)
+                    NotificationManager.shared.showError(Utils.getErrorMessage(error: error))
                 }
             }
         }
@@ -130,6 +130,7 @@ class SurveysViewController: UIViewController {
     @IBAction func refreshButtonTapped() {
         if viewModel.dataSource?.isLoading == false {
             viewModel.dataSource?.data.value.removeAll()
+            viewModel.dataSource?.paging.page = 1
             fetchData()
         }
     }

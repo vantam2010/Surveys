@@ -42,7 +42,7 @@ struct Networking {
             }
             
             if response.statusCode >= 200 && response.statusCode < 300 {
-                completion(Result(value: data.flatMap(resource.parse), or: .resultNil))
+                completion(Result(value: data.flatMap(resource.parse), or: .resultNilOrEmpty))
             } else if response.statusCode == 401 {
                 completion(.failure(.unauthorized))
             } else if response.statusCode == 404 {

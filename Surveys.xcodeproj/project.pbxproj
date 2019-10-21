@@ -42,6 +42,8 @@
 		18F6AD5C235C502300596A6D /* SurveyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD5A235C502300596A6D /* SurveyListViewModel.swift */; };
 		18F6AD60235DF67B00596A6D /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD5F235DF67B00596A6D /* ThemeManager.swift */; };
 		18F6AD62235DF6BB00596A6D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD61235DF6BB00596A6D /* UIColor+Extension.swift */; };
+		18F6AD64235E137300596A6D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD63235E137300596A6D /* NotificationManager.swift */; };
+		18F6AD66235E155100596A6D /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD65235E155100596A6D /* UIWindow+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +96,8 @@
 		18F6AD5A235C502300596A6D /* SurveyListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyListViewModel.swift; sourceTree = "<group>"; };
 		18F6AD5F235DF67B00596A6D /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		18F6AD61235DF6BB00596A6D /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		18F6AD63235E137300596A6D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		18F6AD65235E155100596A6D /* UIWindow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +204,7 @@
 				18F6AD09235AE5E900596A6D /* URL+Extension.swift */,
 				18F6AD0A235AE5E900596A6D /* URLRequest+Extension.swift */,
 				18F6AD61235DF6BB00596A6D /* UIColor+Extension.swift */,
+				18F6AD65235E155100596A6D /* UIWindow+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 				18F6AD16235AE5E900596A6D /* Utils.swift */,
 				18F6AD17235AE5E900596A6D /* Configuration.swift */,
 				18F6AD5F235DF67B00596A6D /* ThemeManager.swift */,
+				18F6AD63235E137300596A6D /* NotificationManager.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -384,6 +390,7 @@
 				18F6AD52235C4FE800596A6D /* CustomImagePageControl.swift in Sources */,
 				18F6AD54235C4FE800596A6D /* UIImageView+Extension.swift in Sources */,
 				18F6AD55235C4FE800596A6D /* Array+Extension.swift in Sources */,
+				18F6AD64235E137300596A6D /* NotificationManager.swift in Sources */,
 				18F6AD26235AE5E900596A6D /* Reachability.swift in Sources */,
 				18F6AD51235C4FE800596A6D /* UIImage+Extension.swift in Sources */,
 				18F6AD18235AE5E900596A6D /* Survey.swift in Sources */,
@@ -395,6 +402,7 @@
 				18F6AD27235AE5E900596A6D /* Utils.swift in Sources */,
 				18F6AD1E235AE5E900596A6D /* URLRequest+Extension.swift in Sources */,
 				18F6AD5C235C502300596A6D /* SurveyListViewModel.swift in Sources */,
+				18F6AD66235E155100596A6D /* UIWindow+Extension.swift in Sources */,
 				18F6AD21235AE5E900596A6D /* Resource.swift in Sources */,
 				18F6AD22235AE5E900596A6D /* Path.swift in Sources */,
 				185725C4235A822000134279 /* AppDelegate.swift in Sources */,

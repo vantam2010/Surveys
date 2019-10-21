@@ -15,7 +15,7 @@ public enum ErrorResult<CustomError>: Error {
     case unauthorized
     case internalServerError
     case custom(CustomError)
-    case resultNil
+    case resultNilOrEmpty
     case other
     case missingService
     case missingPaging
@@ -24,10 +24,10 @@ public enum ErrorResult<CustomError>: Error {
 
 public enum ErrorMessage: String {
     case noInternetConnection = "No Internet Connection"
-    case requestTimeout = "Request timeout"
-    case unauthorized = "Unauthorized"
+    case requestTimeout = "Request timeout. Please click refresh to try again."
+    case unauthorized = "Unauthorized. Please click refresh to try again."
     case internalServerError = "Internal Server Error"
     case notFound = "Not Found"
-    case defaultError = "Oops, something went wrong!"
+    case defaultError = "Oops, something went wrong! Please click refresh to try again."
     case titleError = "Error"
 }
