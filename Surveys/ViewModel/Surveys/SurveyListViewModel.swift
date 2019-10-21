@@ -22,14 +22,17 @@ struct SurveyListViewModel {
     
     func fetchData() {
         
-        if let page = dataSource?.paging.page, let per_page = dataSource?.paging.per_page {
-            // the last page was loaded
-            if page > per_page {
+        if let page = dataSource?.paging.page,
+            let per_page = dataSource?.paging.per_page,
+            let max_item = dataSource?.paging.max_item,
+            let total_item = dataSource?.data.value.count {
+            // return when all page was loaded or total items equals max item
+            if page > per_page || total_item >= max_item {
                 return
             }
         }
         
-        // the next page is loading
+        // return when the next page is loading
         if dataSource?.isLoading == true {
             return
         }
@@ -51,22 +54,29 @@ struct SurveyListViewModel {
                 self.dataSource?.isLoading = false
                 
                 if let value = result.value {
-                    self.dataSource?.data.value += value
-                    
                     if let page = self.dataSource?.paging.page {
                         self.dataSource?.paging.page = page + 1
                     }
+                    
+                    if value.count > 0 {
+                        self.dataSource?.data.value += value
+                    } else {
+                        // call next page when data return empty
+                        self.fetchData()
+                    }
+                    
                 } else if let error = result.error {
-                    self.onErrorHandling?(error)
-//                    switch error {
-//                    case .resultNil:
-//                        #warning("Need contact with back end team, why page 3 return empty and page 4 to 10 return nil")
-//                        if let page = self.dataSource?.paging.page {
-//                            self.dataSource?.paging.page = page + 1
-//                        }
-//                    default:
-//                        self.onErrorHandling?(error)
-//                    }
+                    switch error {
+                    case .resultNil:
+                        if let page = self.dataSource?.paging.page {
+                            self.dataSource?.paging.page = page + 1
+                            
+                            // call next page when data return nil
+                            self.fetchData()
+                        }
+                    default:
+                        self.onErrorHandling?(error)
+                    }
                 }
             }
         }
