@@ -12,6 +12,7 @@ class GenericDataSource<T> : NSObject {
     var data: DynamicValue<[T]> = DynamicValue([])
     var paging: Paging = Paging.init(page: 1, per_page: 10, max_item: 20)
     var isLoading = false
+    var isLoadMore = true
     var delegate: SurveyDataSourceDelegate?
 }
 
@@ -44,9 +45,11 @@ extension SurveyDataSource: UICollectionViewDataSource, UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if data.value.count - 1 == indexPath.row {
-            if let delegate = delegate {
-                delegate.loadMore()
+        if isLoadMore {
+            if data.value.count - 1 == indexPath.row {
+                if let delegate = delegate {
+                    delegate.loadMore()
+                }
             }
         }
     }

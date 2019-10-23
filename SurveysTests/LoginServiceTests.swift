@@ -12,14 +12,15 @@ import XCTest
 class LoginServiceTests: XCTestCase {
     
     fileprivate var service : LoginService!
+    fileprivate let timeout: TimeInterval = 5
     
     override func setUp() {
         super.setUp()
-        self.service = LoginService.shared
+        service = LoginService.shared
     }
     
     override func tearDown() {
-        self.service = nil
+        service = nil
         super.tearDown()
     }
     
@@ -27,6 +28,7 @@ class LoginServiceTests: XCTestCase {
         
         let expectation = XCTestExpectation(description: "Login succesfull!")
         
+        // Remove access token if it already has
         if UserDefaults.standard.object(forKey: Configuration.OAUTH_ACCESS_TOKEN) != nil {
             UserDefaults.standard.removeObject(forKey: Configuration.OAUTH_ACCESS_TOKEN)
             UserDefaults.standard.removeObject(forKey: Configuration.OAUTH_TOKEN_TYPE)
@@ -48,6 +50,6 @@ class LoginServiceTests: XCTestCase {
             }
         }
 
-        wait(for: [expectation], timeout: 30.0)
+        wait(for: [expectation], timeout: timeout)
     }
 }

@@ -34,7 +34,12 @@ struct Networking {
         
         let request = URLRequest(baseUrl: baseUrl, resource: newResouce)
         
-        let task = URLSession.shared.dataTask(with: request) { data, response, _ in
+        let sessionConfig = URLSessionConfiguration.default
+        sessionConfig.timeoutIntervalForRequest = 30.0
+        sessionConfig.timeoutIntervalForResource = 60.0
+        
+        let task = URLSession.init(configuration: sessionConfig).dataTask(with: request) { data, response, _ in
+//        let task = URLSession.shared.dataTask(with: request) { data, response, _ in
             // Parsing incoming data
             guard let response = response as? HTTPURLResponse else {
                 completion(.failure(.other))
@@ -49,6 +54,8 @@ struct Networking {
                 completion(.failure(.notFound))
             } else if response.statusCode == 500 {
                 completion(.failure(.internalServerError))
+            } else if response.statusCode == -1001 {
+                completion(.failure(.requestTimeout))
             } else {
                 completion(.failure(data.flatMap(resource.parseError).map({.custom($0)}) ?? .other))
             }

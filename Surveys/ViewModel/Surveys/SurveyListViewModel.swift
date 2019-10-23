@@ -22,18 +22,13 @@ struct SurveyListViewModel {
     
     func fetchData() {
         
-        if let page = dataSource?.paging.page,
-            let per_page = dataSource?.paging.per_page,
-            let max_item = dataSource?.paging.max_item,
-            let total_item = dataSource?.data.value.count {
-            // return when all page was loaded or total items equals max item
-            if page > per_page || total_item >= max_item {
-                return
-            }
-        }
-        
         // return when the next page is loading
         if dataSource?.isLoading == true {
+            return
+        }
+        
+        // return when is loadMore is false
+        if dataSource?.isLoadMore == false {
             return
         }
         
@@ -54,8 +49,14 @@ struct SurveyListViewModel {
                 self.dataSource?.isLoading = false
                 
                 if let value = result.value {
-                    if let page = self.dataSource?.paging.page {
-                        self.dataSource?.paging.page = page + 1
+                    if let page = self.dataSource?.paging.page,
+                        let current_items = self.dataSource?.data.value.count,
+                        let max_item = self.dataSource?.paging.max_item {
+                        if page == self.dataSource?.paging.per_page || current_items + value.count >= max_item {
+                            self.dataSource?.isLoadMore = false
+                        } else {
+                            self.dataSource?.paging.page = page + 1
+                        }
                     }
                     
                     if value.count > 0 {
