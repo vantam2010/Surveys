@@ -46,6 +46,7 @@
 		18F6AD64235E137300596A6D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD63235E137300596A6D /* NotificationManager.swift */; };
 		18F6AD66235E155100596A6D /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD65235E155100596A6D /* UIWindow+Extension.swift */; };
 		18F6AD68235E1E1B00596A6D /* SurveyListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD67235E1E1B00596A6D /* SurveyListViewModelTests.swift */; };
+		18FBD6032360FD4100BEBF39 /* DetailsSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBD6022360FD4100BEBF39 /* DetailsSurveyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		18F6AD63235E137300596A6D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		18F6AD65235E155100596A6D /* UIWindow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
 		18F6AD67235E1E1B00596A6D /* SurveyListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyListViewModelTests.swift; sourceTree = "<group>"; };
+		18FBD6022360FD4100BEBF39 /* DetailsSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsSurveyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +254,7 @@
 		18F6AD45235C4F3200596A6D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				18FBD6012360FCE200BEBF39 /* Details */,
 				18F6AD46235C4F4800596A6D /* Surveys */,
 			);
 			path = View;
@@ -281,6 +284,14 @@
 				18F6AD5A235C502300596A6D /* SurveyListViewModel.swift */,
 			);
 			path = Surveys;
+			sourceTree = "<group>";
+		};
+		18FBD6012360FCE200BEBF39 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				18FBD6022360FD4100BEBF39 /* DetailsSurveyViewController.swift */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,6 +419,7 @@
 				18F6AD27235AE5E900596A6D /* Utils.swift in Sources */,
 				18F6AD1E235AE5E900596A6D /* URLRequest+Extension.swift in Sources */,
 				1804182A2360E9F800FDC7AF /* SurveyButton.swift in Sources */,
+				18FBD6032360FD4100BEBF39 /* DetailsSurveyViewController.swift in Sources */,
 				18F6AD5C235C502300596A6D /* SurveyListViewModel.swift in Sources */,
 				18F6AD66235E155100596A6D /* UIWindow+Extension.swift in Sources */,
 				18F6AD21235AE5E900596A6D /* Resource.swift in Sources */,

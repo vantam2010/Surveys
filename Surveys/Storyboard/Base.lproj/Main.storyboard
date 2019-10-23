@@ -102,6 +102,9 @@
                                 <state key="normal" title="     Take the survey     ">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="surveyButtonTapped" destination="9UO-xP-aYF" eventType="touchUpInside" id="6Rc-Zk-55l"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -135,6 +138,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="erf-os-r6c" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1006" y="-603"/>
+        </scene>
+        <!--Details Survey View Controller-->
+        <scene sceneID="wWg-Jd-RW9">
+            <objects>
+                <viewController storyboardIdentifier="DetailsSurveyVC" id="Uua-4w-CXl" customClass="DetailsSurveyViewController" customModule="Surveys" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1pD-gb-Z8X">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Vq8-LV-D9z"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yHC-YR-yvu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1813" y="-603"/>
         </scene>
     </scenes>
     <resources>

@@ -52,6 +52,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barStyle = .black
         UINavigationBar.appearance().setBackgroundImage(UIImage.imageWithColor(tintColor: ThemeManager.color.main), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage.imageWithColor(tintColor: ThemeManager.color.main)
+        
+        UIBarButtonItem.appearance().setTitleTextAttributes([.foregroundColor: UIColor.clear], for: .normal)
     }
 }
 

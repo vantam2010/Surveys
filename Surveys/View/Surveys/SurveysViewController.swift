@@ -39,7 +39,9 @@ class SurveysViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        fetchData()
+        if viewModel.dataSource?.data.value.count == 0 {
+            fetchData()
+        }
     }
     
     private func setupPageControl() {
@@ -149,6 +151,16 @@ extension SurveysViewController {
             viewModel.dataSource?.data.value.removeAll()
             viewModel.dataSource?.paging.page = 1
             fetchData()
+        }
+    }
+    
+    @IBAction func surveyButtonTapped() {
+        if let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailsSurveyVC") as?
+            DetailsSurveyViewController {
+            if let survey = self.viewModel.dataSource?.data.value.getElement(pageControl.currentPage) {
+                vc.survey = survey
+                navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
 }
