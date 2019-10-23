@@ -94,7 +94,7 @@ class SurveyListViewModelTests: XCTestCase {
     }
     
     // get data from page 1 to 10 and max item is 100
-    func testFetchData_With_Result_Empty() {
+    func testFetchData_With_MaxItem_100() {
         dataSource?.paging.max_item = 100
         
         let expectation = XCTestExpectation(description: "Loading surveys")

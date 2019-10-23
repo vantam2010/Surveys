@@ -28,7 +28,7 @@
             </objects>
             <point key="canvasLocation" x="134.78260869565219" y="-603.34821428571422"/>
         </scene>
-        <!--Surveys View Controller-->
+        <!--Surveys-->
         <scene sceneID="zwT-Kc-2ZL">
             <objects>
                 <viewController id="9UO-xP-aYF" customClass="SurveysViewController" customModule="Surveys" customModuleProvider="target" sceneMemberID="viewController">
@@ -56,25 +56,25 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TXi-0A-SI0">
                                                     <rect key="frame" x="0.0" y="0.0" width="413" height="810"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQK-Lh-BPu">
-                                                    <rect key="frame" x="10" y="30" width="393" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQK-Lh-BPu">
+                                                    <rect key="frame" x="10" y="88" width="393" height="29"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3r-zg-dzy">
-                                                    <rect key="frame" x="10" y="71" width="393" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3r-zg-dzy">
+                                                    <rect key="frame" x="10" y="127" width="393" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="cQK-Lh-BPu" firstAttribute="top" secondItem="eXR-bG-6As" secondAttribute="top" constant="30" id="8jR-CT-lls"/>
+                                            <constraint firstItem="cQK-Lh-BPu" firstAttribute="top" secondItem="eXR-bG-6As" secondAttribute="top" constant="88" id="8jR-CT-lls"/>
                                             <constraint firstAttribute="bottom" secondItem="TXi-0A-SI0" secondAttribute="bottom" id="DoG-Mu-tUG"/>
                                             <constraint firstAttribute="trailing" secondItem="cQK-Lh-BPu" secondAttribute="trailing" constant="10" id="FfV-B6-YgA"/>
-                                            <constraint firstItem="E3r-zg-dzy" firstAttribute="top" secondItem="cQK-Lh-BPu" secondAttribute="bottom" constant="20" id="K4D-C6-93I"/>
+                                            <constraint firstItem="E3r-zg-dzy" firstAttribute="top" secondItem="cQK-Lh-BPu" secondAttribute="bottom" constant="10" id="K4D-C6-93I"/>
                                             <constraint firstAttribute="trailing" secondItem="E3r-zg-dzy" secondAttribute="trailing" constant="10" id="LiA-kc-2Mg"/>
                                             <constraint firstItem="TXi-0A-SI0" firstAttribute="leading" secondItem="eXR-bG-6As" secondAttribute="leading" id="RC9-CC-4Xn"/>
                                             <constraint firstAttribute="trailing" secondItem="TXi-0A-SI0" secondAttribute="trailing" id="a6A-Rk-XoZ"/>
@@ -93,19 +93,31 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="BFU-0f-hIh">
                                 <rect key="frame" x="197" y="482" width="20" height="20"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kKs-hy-tsU" customClass="SurveyButton" customModule="Surveys" customModuleProvider="target">
+                                <rect key="frame" x="133" y="778" width="148" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="WWE-Rc-XEh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="     Take the survey     ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="eKF-ff-A3C" secondAttribute="trailing" id="4Px-IP-TMC"/>
                             <constraint firstItem="eKF-ff-A3C" firstAttribute="leading" secondItem="9Dp-9W-vko" secondAttribute="leading" id="8bb-tL-P5P"/>
+                            <constraint firstItem="kKs-hy-tsU" firstAttribute="centerX" secondItem="nnF-yL-2b4" secondAttribute="centerX" id="Fxh-1O-E9A"/>
                             <constraint firstItem="BFU-0f-hIh" firstAttribute="centerY" secondItem="eKF-ff-A3C" secondAttribute="centerY" id="cQx-l1-0vL"/>
                             <constraint firstItem="nnF-yL-2b4" firstAttribute="top" secondItem="eKF-ff-A3C" secondAttribute="top" id="fp3-L8-p6t"/>
                             <constraint firstAttribute="bottom" secondItem="eKF-ff-A3C" secondAttribute="bottom" id="jSe-Ek-iNl"/>
+                            <constraint firstItem="kKs-hy-tsU" firstAttribute="bottom" secondItem="nnF-yL-2b4" secondAttribute="bottom" constant="-44" id="sbl-Oz-JQj"/>
                             <constraint firstItem="BFU-0f-hIh" firstAttribute="centerX" secondItem="eKF-ff-A3C" secondAttribute="centerX" id="vrt-Sv-JJX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nnF-yL-2b4"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6U1-Sr-eg1">
+                    <navigationItem key="navigationItem" title="Surveys" id="6U1-Sr-eg1">
                         <barButtonItem key="leftBarButtonItem" image="refresh" id="Cgb-gK-kTg">
                             <connections>
                                 <action selector="refreshButtonTapped" destination="9UO-xP-aYF" id="ag6-tp-672"/>
@@ -117,6 +129,7 @@
                         <outlet property="activityIndicatorView" destination="BFU-0f-hIh" id="p2p-7P-Gqp"/>
                         <outlet property="collectionView" destination="eKF-ff-A3C" id="hoe-gp-yet"/>
                         <outlet property="layout" destination="rBL-09-i9G" id="TmC-PH-QOA"/>
+                        <outlet property="surveyButton" destination="kKs-hy-tsU" id="ZUh-bU-S87"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="erf-os-r6c" sceneMemberID="firstResponder"/>

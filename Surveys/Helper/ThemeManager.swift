@@ -11,7 +11,7 @@ import UIKit
 public struct ThemeColor {
     public var text: UIColor = .white
     public var background: UIColor = .darkGray
-    public var highlight: UIColor = .red
+    public var highlight: UIColor = UIColor.init(hex: "D02424")
     public var main: UIColor = .black
 }
 

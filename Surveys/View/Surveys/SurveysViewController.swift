@@ -10,9 +10,10 @@ import UIKit
 
 class SurveysViewController: UIViewController {
     
+    @IBOutlet weak var surveyButton: UIButton!
     @IBOutlet weak var collectionView : UICollectionView!
-    @IBOutlet weak  var layout: UICollectionViewFlowLayout!
-    @IBOutlet weak  var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var layout: UICollectionViewFlowLayout!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     var pageControl: CustomImagePageControl!
     
     let dataSource = SurveyDataSource()
@@ -25,49 +26,13 @@ class SurveysViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Surveys"
         
         service = LoginService.shared
         activityIndicatorView.isHidden = true
         activityIndicatorView.color = ThemeManager.color.text
         
-        layout.minimumLineSpacing = 0
-        layout.minimumInteritemSpacing = 0
-        layout.itemSize = collectionView.frame.size
-        
-        collectionView.frame = .zero
-        collectionView.backgroundColor = ThemeManager.color.background
-        collectionView.dataSource = self.dataSource
-        collectionView.delegate = self.dataSource
-        
-        dataSource.data.addAndNotify(observer: self) { [weak self] _ in
-            guard let self = self else {return}
-            self.collectionView.reloadData()
-            
-            if let numberOfPages = self.viewModel.dataSource?.data.value.count {
-                if let pageControl = self.pageControl {
-                    pageControl.numberOfPages = numberOfPages
-                }
-            }
-            
-            if self.activityIndicatorView.isAnimating {
-                self.activityIndicatorView.isHidden = true
-                self.activityIndicatorView.stopAnimating()
-            }
-        }
-        
-        viewModel.dataSource?.delegate = self
-        
-        viewModel.onErrorHandling = { [weak self] error in
-            guard let self = self else {return}
-            NotificationManager.shared.showError(Utils.getErrorMessage(error: error))
-            
-            if self.activityIndicatorView.isAnimating {
-                self.activityIndicatorView.isHidden = true
-                self.activityIndicatorView.stopAnimating()
-            }
-        }
-        
+        setupViewModel()
+        setupCollectionLayout()
         setupPageControl()
     }
     
@@ -85,12 +50,64 @@ class SurveysViewController: UIViewController {
         pageControl.transform = CGAffineTransform(rotationAngle: CGFloat.pi/2)
         pageControl.currentPage = 1
         pageControl.numberOfPages = 0
-        pageControl.frame = CGRect.init(x: view.frame.width - 50, y: (view.frame.height-collectionView.frame.height)/2, width: 50, height: collectionView.frame.height)
-        pageControl.backgroundColor = .red
+        let navHeight = navigationController?.navigationBar.frame.height ?? 44 + UIApplication.shared.statusBarFrame.height
+        pageControl.frame = CGRect.init(x: view.frame.width - 44, y: 44, width: 44, height: view.frame.height-navHeight)
         view.addSubview(pageControl)
     }
     
-    private func login() {
+    private func setupCollectionLayout() {
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.itemSize = collectionView.frame.size
+        
+        collectionView.frame = .zero
+        collectionView.backgroundColor = ThemeManager.color.background
+        collectionView.dataSource = self.dataSource
+        collectionView.delegate = self.dataSource
+    }
+    
+    private func setupViewModel() {
+        viewModel.dataSource?.delegate = self
+        
+        // observer data change
+        dataSource.data.addAndNotify(observer: self) { [weak self] _ in
+            guard let self = self else {return}
+            self.collectionView.reloadData()
+            
+            if let numberOfPages = self.viewModel.dataSource?.data.value.count {
+                if let pageControl = self.pageControl {
+                    pageControl.numberOfPages = numberOfPages
+                }
+            }
+            
+            if self.activityIndicatorView.isAnimating {
+                self.activityIndicatorView.isHidden = true
+                self.activityIndicatorView.stopAnimating()
+            }
+            
+            if self.dataSource.data.value.count == 0 {
+                self.surveyButton.isHidden = true
+            } else {
+                self.surveyButton.isHidden = false
+            }
+        }
+        
+        // listioner error
+        viewModel.onErrorHandling = { [weak self] error in
+            guard let self = self else {return}
+            NotificationManager.shared.showError(Utils.getErrorMessage(error: error))
+            
+            if self.activityIndicatorView.isAnimating {
+                self.activityIndicatorView.isHidden = true
+                self.activityIndicatorView.stopAnimating()
+            }
+        }
+    }
+}
+
+// MARK: - Function
+extension SurveysViewController {
+    fileprivate func login() {
         activityIndicatorView.isHidden = false
         activityIndicatorView.startAnimating()
         
@@ -114,7 +131,7 @@ class SurveysViewController: UIViewController {
         }
     }
     
-    private func fetchData() {
+    fileprivate func fetchData() {
         if UserDefaults.standard.object(forKey: Configuration.OAUTH_ACCESS_TOKEN) == nil {
             login()
         } else {
@@ -136,6 +153,7 @@ class SurveysViewController: UIViewController {
     }
 }
 
+// MARK: - SurveyDataSourceDelegate
 extension SurveysViewController: SurveyDataSourceDelegate {
     func loadMore() {
         viewModel.fetchData()
