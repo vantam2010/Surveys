@@ -133,7 +133,7 @@ extension SurveysViewController {
         }
     }
     
-    fileprivate func fetchData() {
+    @objc fileprivate func fetchData() {
         if UserDefaults.standard.object(forKey: Configuration.OAUTH_ACCESS_TOKEN) == nil {
             login()
         } else {
@@ -150,6 +150,7 @@ extension SurveysViewController {
         if viewModel.dataSource?.isLoading == false {
             viewModel.dataSource?.data.value.removeAll()
             viewModel.dataSource?.paging.page = 1
+            viewModel.dataSource?.isLoadMore = true
             fetchData()
         }
     }

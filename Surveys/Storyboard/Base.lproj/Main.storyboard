@@ -68,6 +68,9 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="aRU-fr-WuV">
+                                                    <rect key="frame" x="196.5" y="395" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                         </view>
                                         <constraints>
@@ -76,8 +79,10 @@
                                             <constraint firstAttribute="trailing" secondItem="cQK-Lh-BPu" secondAttribute="trailing" constant="10" id="FfV-B6-YgA"/>
                                             <constraint firstItem="E3r-zg-dzy" firstAttribute="top" secondItem="cQK-Lh-BPu" secondAttribute="bottom" constant="10" id="K4D-C6-93I"/>
                                             <constraint firstAttribute="trailing" secondItem="E3r-zg-dzy" secondAttribute="trailing" constant="10" id="LiA-kc-2Mg"/>
+                                            <constraint firstItem="aRU-fr-WuV" firstAttribute="centerX" secondItem="eXR-bG-6As" secondAttribute="centerX" id="Ozx-Mt-grY"/>
                                             <constraint firstItem="TXi-0A-SI0" firstAttribute="leading" secondItem="eXR-bG-6As" secondAttribute="leading" id="RC9-CC-4Xn"/>
                                             <constraint firstAttribute="trailing" secondItem="TXi-0A-SI0" secondAttribute="trailing" id="a6A-Rk-XoZ"/>
+                                            <constraint firstItem="aRU-fr-WuV" firstAttribute="centerY" secondItem="eXR-bG-6As" secondAttribute="centerY" id="eDJ-j4-aw8"/>
                                             <constraint firstItem="E3r-zg-dzy" firstAttribute="leading" secondItem="eXR-bG-6As" secondAttribute="leading" constant="10" id="j2W-Mx-fIe"/>
                                             <constraint firstItem="TXi-0A-SI0" firstAttribute="top" secondItem="eXR-bG-6As" secondAttribute="top" id="kbJ-Jp-9jG"/>
                                             <constraint firstItem="cQK-Lh-BPu" firstAttribute="leading" secondItem="eXR-bG-6As" secondAttribute="leading" constant="10" id="oEC-8k-a1k"/>
@@ -85,6 +90,7 @@
                                         <connections>
                                             <outlet property="coverImageView" destination="TXi-0A-SI0" id="Hmf-WM-uWc"/>
                                             <outlet property="descLabel" destination="E3r-zg-dzy" id="Mhj-cW-ofb"/>
+                                            <outlet property="indicator" destination="aRU-fr-WuV" id="b3e-jC-CR3"/>
                                             <outlet property="titleLabel" destination="cQK-Lh-BPu" id="2da-Uh-2f0"/>
                                         </connections>
                                     </collectionViewCell>

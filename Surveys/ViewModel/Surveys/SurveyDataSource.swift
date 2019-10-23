@@ -27,15 +27,21 @@ class SurveyDataSource: GenericDataSource<Survey> {}
 extension SurveyDataSource: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.value.count
+        // add one row for loading indicator
+        return data.value.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SurveyViewCell", for: indexPath) as? SurveyViewCell {
-            if let survey = data.value.getElement(indexPath.row) {
-                cell.survey = survey
+            if indexPath.row == data.value.count {
+                cell.isAnimating = true
+            } else {
+                if let survey = data.value.getElement(indexPath.row) {
+                    cell.survey = survey
+                    cell.isAnimating = false
+                }
             }
             
             return cell
@@ -53,12 +59,23 @@ extension SurveyDataSource: UICollectionViewDataSource, UICollectionViewDelegate
             }
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplaySupplementaryView view: UICollectionReusableView, forElementKind elementKind: String, at indexPath: IndexPath) {
+        
+    }
 }
 
 extension SurveyDataSource: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return collectionView.frame.size
+        if indexPath.row == data.value.count {
+            if isLoadMore && data.value.count > 1 {
+                return CGSize.init(width: collectionView.frame.width, height: 30)
+            } else {
+                return CGSize.zero
+            }
+        } else {
+            return collectionView.frame.size
+        }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

@@ -13,15 +13,9 @@ class SurveyViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var coverImageView: UIImageView!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     public static let reuseIdentifier = "SurveyViewCell"
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        titleLabel.textColor = ThemeManager.color.text
-        descLabel.textColor = ThemeManager.color.text
-    }
     
     public var survey: Survey? {
         didSet {
@@ -29,6 +23,7 @@ class SurveyViewCell: UICollectionViewCell {
             
             titleLabel.text = survey.title
             descLabel.text = survey.description
+            indicator.color = ThemeManager.color.text
             
             if let cover_image_url = survey.cover_image_url, cover_image_url.isValidURL {
                 coverImageView.loadImageUsingCache(withUrl: "\(cover_image_url)\(Configuration.HIGH_RESOLUTION_IMAGE_CONFIG)", resize: self.frame.size)
@@ -37,5 +32,29 @@ class SurveyViewCell: UICollectionViewCell {
             }
         }
     }
+    
+    public var isAnimating: Bool = false {
+        didSet {
+            if isAnimating {
+                indicator.isHidden = false
+                indicator.startAnimating()
+                coverImageView.image = UIImage.imageWithColor(tintColor: ThemeManager.color.background)
+            } else {
+                indicator.isHidden = true
+                indicator.stopAnimating()
+            }
+        }
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        titleLabel.textColor = ThemeManager.color.text
+        descLabel.textColor = ThemeManager.color.text
+        
+        titleLabel.text = ""
+        descLabel.text = ""
+    }
+    
     
 }
