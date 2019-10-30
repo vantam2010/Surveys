@@ -80,7 +80,7 @@ class SurveyListViewModelTests: XCTestCase {
                 
                 self.viewModel.fetchData()
             } else {
-                XCTAssert(false, "Login fail")
+                XCTFail("Login fail")
             }
         }
         
@@ -106,9 +106,9 @@ class SurveyListViewModelTests: XCTestCase {
                     if let errorResult = error {
                         switch errorResult {
                         case .resultNilOrEmpty:
-                            XCTAssert(false, "Got result nil or empry")
+                            XCTFail("Got result nil or empty")
                         default:
-                            XCTAssert(false, Utils.getErrorMessage(error: errorResult))
+                            XCTFail(Utils.getErrorMessage(error: errorResult))
                         }
                     }
                 }
@@ -123,7 +123,7 @@ class SurveyListViewModelTests: XCTestCase {
                 
                 self.viewModel.fetchData()
             } else {
-                XCTAssert(false, "Login fail")
+                XCTFail("Login fail")
             }
         }
         

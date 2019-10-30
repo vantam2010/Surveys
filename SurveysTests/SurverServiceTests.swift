@@ -62,13 +62,13 @@ class SurverServiceTests: XCTestCase {
                     if result.value != nil {
                         expectation.fulfill()
                     } else if let error = result.error {
-                        XCTAssert(false, Utils.getErrorMessage(error: error))
+                        XCTFail(Utils.getErrorMessage(error: error))
                     } else {
-                        XCTAssert(false, "Handle missing result")
+                        XCTFail("Handle missing result")
                     }
                 }
             } else {
-                XCTAssert(false, "Login fail")
+                XCTFail("Login fail")
             }
         }
         
@@ -91,10 +91,10 @@ class SurverServiceTests: XCTestCase {
                 if self.surveyService.task == nil {
                     expectation.fulfill()
                 } else {
-                    XCTAssert(false, "Cancel task fail")
+                    XCTFail("Cancel task fail")
                 }
             } else {
-                XCTAssert(false, "Login fail")
+                XCTFail("Login fail")
             }
         }
         

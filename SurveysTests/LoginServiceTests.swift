@@ -24,7 +24,7 @@ class LoginServiceTests: XCTestCase {
         super.tearDown()
     }
     
-    func testLogin() {
+    func testLoginSucces() {
         
         let expectation = XCTestExpectation(description: "Login succesfull!")
         
@@ -45,11 +45,41 @@ class LoginServiceTests: XCTestCase {
                         expectation.fulfill()
                     }
                 } else if let error = result.error {
-                    XCTAssert(false, Utils.getErrorMessage(error: error))
+                    XCTFail(Utils.getErrorMessage(error: error))
                 }
             }
         }
 
+        wait(for: [expectation], timeout: timeout)
+    }
+    
+    func testLoginFail() {
+        
+        let expectation = XCTestExpectation(description: "Login fail!")
+        
+        // Remove access token if it already has
+        if UserDefaults.standard.object(forKey: Configuration.OAUTH_ACCESS_TOKEN) != nil {
+            UserDefaults.standard.removeObject(forKey: Configuration.OAUTH_ACCESS_TOKEN)
+            UserDefaults.standard.removeObject(forKey: Configuration.OAUTH_TOKEN_TYPE)
+            UserDefaults.standard.synchronize()
+        }
+        
+        // login with username not exist in system
+        service.login(username: "tamnguyen", password: "tamnguyen") { result in
+            DispatchQueue.main.async {
+                if result.value != nil {
+                    XCTFail("Login successfully with fake username and password")
+                } else if let error = result.error {
+                    switch error {
+                    case .unauthorized:
+                        expectation.fulfill()
+                    default:
+                        XCTFail(Utils.getErrorMessage(error: error))
+                    }
+                }
+            }
+        }
+        
         wait(for: [expectation], timeout: timeout)
     }
 }
