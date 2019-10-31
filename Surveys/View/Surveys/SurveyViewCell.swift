@@ -15,9 +15,9 @@ class SurveyViewCell: UICollectionViewCell {
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
-    public static let reuseIdentifier = "SurveyViewCell"
+    static let reuseIdentifier = "SurveyViewCell"
     
-    public var survey: Survey? {
+    var survey: Survey? {
         didSet {
             guard let survey = survey else { return }
             
@@ -33,7 +33,7 @@ class SurveyViewCell: UICollectionViewCell {
         }
     }
     
-    public var isAnimating: Bool = false {
+    var isAnimating: Bool = false {
         didSet {
             if isAnimating {
                 indicator.isHidden = false

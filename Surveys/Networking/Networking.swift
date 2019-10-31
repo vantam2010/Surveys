@@ -13,13 +13,13 @@ struct Networking {
     static let shared = Networking.init(baseUrl: Configuration.BASE_URL)
     
     private var baseUrl: String
-    public var commonParams: JSON = [:]
+    var commonParams: JSON = [:]
     
     private init(baseUrl: String) {
         self.baseUrl = baseUrl
     }
     
-    public func makeRequest<T, CustomError>(resource: Resource<T, CustomError>,
+    func makeRequest<T, CustomError>(resource: Resource<T, CustomError>,
                             completion: @escaping (Result<T, CustomError>) ->()) -> URLSessionDataTask? {
         
         if !Reachability.isConnectedToNetwork() {

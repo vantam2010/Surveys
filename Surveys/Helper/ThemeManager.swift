@@ -8,23 +8,23 @@
 
 import UIKit
 
-public struct ThemeColor {
-    public var text: UIColor = .white
-    public var background: UIColor = .darkGray
-    public var highlight: UIColor = UIColor.init(hex: "D02424")
-    public var main: UIColor = .black
+struct ThemeColor {
+    var text: UIColor = .white
+    var background: UIColor = .darkGray
+    var highlight: UIColor = UIColor.init(hex: "D02424")
+    var main: UIColor = .black
 }
 
-public struct ThemeFontSize {
-    public let title:CGFloat = 17
-    public let body:CGFloat = 14
+struct ThemeFontSize {
+    let title:CGFloat = 17
+    let body:CGFloat = 14
 }
 
-public struct ThemeManager {
+struct ThemeManager {
     private static var themeColor: ThemeColor?
     private static var themeFontSize: ThemeFontSize?
     
-    public static var color: ThemeColor {
+    static var color: ThemeColor {
         if let storedTheme = themeColor {
             return storedTheme
         } else {
@@ -32,7 +32,7 @@ public struct ThemeManager {
         }
     }
     
-    public static var fontSize: ThemeFontSize {
+    static var fontSize: ThemeFontSize {
         if let storedTheme = themeFontSize {
             return storedTheme
         } else {

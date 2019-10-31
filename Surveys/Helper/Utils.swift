@@ -8,8 +8,8 @@
 
 import UIKit
 
-public class Utils {
-    public static func visibleViewController() -> UIViewController? {
+class Utils {
+    static func visibleViewController() -> UIViewController? {
         let appDelegate = UIApplication.shared.delegate
         if let window = appDelegate?.window {
             return window?.visibleViewController

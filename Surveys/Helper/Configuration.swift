@@ -8,11 +8,11 @@
 
 import Foundation
 
-public struct Configuration {
-    public static var BASE_URL = "https://nimble-survey-api.herokuapp.com"
-    public static let OAUTH_ACCESS_TOKEN = "OAUTH_ACCESS_TOKEN"
-    public static let OAUTH_TOKEN_TYPE = "OAUTH_TOKEN_TYPE"
-    public static let USER_NAME = "carlos@nimbl3.com"
-    public static let PASSWORD = "antikera"
-    public static let HIGH_RESOLUTION_IMAGE_CONFIG = "l"
+struct Configuration {
+    static var BASE_URL = "https://nimble-survey-api.herokuapp.com"
+    static let OAUTH_ACCESS_TOKEN = "OAUTH_ACCESS_TOKEN"
+    static let OAUTH_TOKEN_TYPE = "OAUTH_TOKEN_TYPE"
+    static let USER_NAME = "carlos@nimbl3.com"
+    static let PASSWORD = "antikera"
+    static let HIGH_RESOLUTION_IMAGE_CONFIG = "l"
 }

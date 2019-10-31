@@ -8,17 +8,17 @@
 
 import Foundation
 
-public typealias JSON = [String: Any]
-public typealias HTTPHeaders = [String: String]
+typealias JSON = [String: Any]
+typealias HTTPHeaders = [String: String]
 
-public enum RequestMethod: String {
+enum RequestMethod: String {
     case get = "GET"
     case post = "POST"
     case put = "PUT"
     case delete = "DELETE"
 }
 
-public struct Resource<T, CustomError> {
+struct Resource<T, CustomError> {
     let path: Path
     let method: RequestMethod
     var headers: HTTPHeaders

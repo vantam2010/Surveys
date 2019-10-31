@@ -24,11 +24,11 @@ class DynamicValue<T> {
         self.value = value
     }
     
-    public func addObserver(_ observer: NSObject, completionHandler: @escaping CompletionHandler) {
+    func addObserver(_ observer: NSObject, completionHandler: @escaping CompletionHandler) {
         observers[observer.description] = completionHandler
     }
     
-    public func addAndNotify(observer: NSObject, completionHandler: @escaping CompletionHandler) {
+    func addAndNotify(observer: NSObject, completionHandler: @escaping CompletionHandler) {
         addObserver(observer, completionHandler: completionHandler)
         notify()
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum ErrorResult<CustomError>: Error {
+enum ErrorResult<CustomError>: Error {
     case noInternetConnection
     case requestTimeout
     case cancelRequest

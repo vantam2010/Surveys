@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum Result<T, CustomError> {
+enum Result<T, CustomError> {
     case success(T)
     case failure(ErrorResult<CustomError>)
 }
