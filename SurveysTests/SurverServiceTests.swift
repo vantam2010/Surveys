@@ -103,6 +103,7 @@ class SurverServiceTests: XCTestCase {
     
     // expect return unauthorized error
     func testFetchData_Without_AccessToken() {
+        let expectation = XCTestExpectation(description: "Expected unauthorized")
         
         // Remove access token for this test case
         if UserDefaults.standard.object(forKey: Configuration.OAUTH_ACCESS_TOKEN) != nil {
@@ -115,11 +116,17 @@ class SurverServiceTests: XCTestCase {
             DispatchQueue.main.async {
                 
                 if let errorResult = result.error {
-                    XCTAssertEqual(errorResult.localizedDescription, ErrorResult<Any>.unauthorized.localizedDescription)
+                    if errorResult.localizedDescription == ErrorResult<Any>.unauthorized.localizedDescription {
+                        expectation.fulfill()
+                    } else {
+                        XCTFail(errorResult.localizedDescription)
+                    }
                 } else {
                     XCTFail("No error thrown")
                 }
             }
         }
+        
+        self.wait(for: [expectation], timeout: timeout)
     }
 }

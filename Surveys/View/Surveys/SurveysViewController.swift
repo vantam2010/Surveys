@@ -40,7 +40,7 @@ class SurveysViewController: UIViewController {
         super.viewWillAppear(animated)
         
         if viewModel.dataSource?.data.value.count == 0 {
-            fetchData()
+            refreshData()
         }
     }
     
@@ -146,13 +146,17 @@ extension SurveysViewController {
         }
     }
     
-    @IBAction func refreshButtonTapped() {
+    private func refreshData() {
         if viewModel.dataSource?.isLoading == false {
             viewModel.dataSource?.data.value.removeAll()
             viewModel.dataSource?.paging.page = 1
             viewModel.dataSource?.isLoadMore = true
             fetchData()
         }
+    }
+    
+    @IBAction func refreshButtonTapped() {
+        refreshData()
     }
     
     @IBAction func surveyButtonTapped() {
