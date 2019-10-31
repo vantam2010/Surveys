@@ -42,7 +42,7 @@ class SurverServiceTests: XCTestCase {
                         completion(true)
                     }
                 } else if let error = result.error {
-                    XCTAssert(false, Utils.getErrorMessage(error: error))
+                    XCTFail(error.localizedDescription)
                 }
                 
                 completion(false)
@@ -62,7 +62,7 @@ class SurverServiceTests: XCTestCase {
                     if result.value != nil {
                         expectation.fulfill()
                     } else if let error = result.error {
-                        XCTFail(Utils.getErrorMessage(error: error))
+                        XCTFail(error.localizedDescription)
                     } else {
                         XCTFail("Handle missing result")
                     }

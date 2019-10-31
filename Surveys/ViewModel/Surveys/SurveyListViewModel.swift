@@ -13,7 +13,7 @@ struct SurveyListViewModel {
     weak var dataSource: GenericDataSource<Survey>?
     weak var service: SurveyServiceProtocol?
     
-    var onErrorHandling: ((ErrorResult<CustomError>?) -> Void)?
+    var onErrorHandling: ((ErrorResult<CustomError>) -> Void)?
     
     init(service: SurveyServiceProtocol = SurveyService.shared, dataSource: GenericDataSource<Survey>?) {
         self.dataSource = dataSource

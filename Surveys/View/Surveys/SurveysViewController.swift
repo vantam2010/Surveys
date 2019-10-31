@@ -97,7 +97,7 @@ class SurveysViewController: UIViewController {
         // listioner error
         viewModel.onErrorHandling = { [weak self] error in
             guard let self = self else {return}
-            NotificationManager.shared.showError(Utils.getErrorMessage(error: error))
+            NotificationManager.shared.showError(error.localizedDescription)
             
             if self.activityIndicatorView.isAnimating {
                 self.activityIndicatorView.isHidden = true
@@ -127,7 +127,7 @@ extension SurveysViewController {
                         self?.viewModel.fetchData()
                     }
                 } else if let error = result.error {
-                    NotificationManager.shared.showError(Utils.getErrorMessage(error: error))
+                    NotificationManager.shared.showError(error.localizedDescription)
                 }
             }
         }

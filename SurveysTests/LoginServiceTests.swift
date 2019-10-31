@@ -45,7 +45,7 @@ class LoginServiceTests: XCTestCase {
                         expectation.fulfill()
                     }
                 } else if let error = result.error {
-                    XCTFail(Utils.getErrorMessage(error: error))
+                    XCTFail(error.localizedDescription)
                 }
             }
         }
@@ -74,7 +74,7 @@ class LoginServiceTests: XCTestCase {
                     case .unauthorized:
                         expectation.fulfill()
                     default:
-                        XCTFail(Utils.getErrorMessage(error: error))
+                        XCTFail(error.localizedDescription)
                     }
                 }
             }

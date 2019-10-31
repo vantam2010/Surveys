@@ -38,10 +38,18 @@ struct Networking {
         sessionConfig.timeoutIntervalForRequest = 30.0
         sessionConfig.timeoutIntervalForResource = 60.0
         
-        let task = URLSession.init(configuration: sessionConfig).dataTask(with: request) { data, response, _ in
-//        let task = URLSession.shared.dataTask(with: request) { data, response, _ in
+        let task = URLSession.init(configuration: sessionConfig).dataTask(with: request) { data, response, error in
             // Parsing incoming data
             guard let response = response as? HTTPURLResponse else {
+                if let error = error {
+                    if error.localizedDescription.contains("cancelled") {
+                        completion(.failure(.cancelRequest))
+                        return
+                    } else if error.localizedDescription.contains("timeout") {
+                        completion(.failure(.requestTimeout))
+                        return
+                    }
+                }
                 completion(.failure(.other))
                 return
             }
@@ -54,8 +62,6 @@ struct Networking {
                 completion(.failure(.notFound))
             } else if response.statusCode == 500 {
                 completion(.failure(.internalServerError))
-            } else if response.statusCode == -1001 {
-                completion(.failure(.requestTimeout))
             } else {
                 completion(.failure(data.flatMap(resource.parseError).map({.custom($0)}) ?? .other))
             }

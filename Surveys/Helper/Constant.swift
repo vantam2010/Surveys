@@ -11,6 +11,7 @@ import Foundation
 public enum ErrorResult<CustomError>: Error {
     case noInternetConnection
     case requestTimeout
+    case cancelRequest
     case notFound
     case unauthorized
     case internalServerError
@@ -19,15 +20,21 @@ public enum ErrorResult<CustomError>: Error {
     case other
     case missingService
     case missingPaging
-}
-
-
-public enum ErrorMessage: String {
-    case noInternetConnection = "No Internet Connection"
-    case requestTimeout = "Request timeout. Please click refresh to try again."
-    case unauthorized = "Unauthorized. Please click refresh to try again."
-    case internalServerError = "Internal Server Error"
-    case notFound = "Not Found"
-    case defaultError = "Oops, something went wrong! Please click refresh to try again."
-    case titleError = "Error"
+    
+    var localizedDescription: String {
+        switch self {
+        case .noInternetConnection: return "No Internet Connection."
+        case .requestTimeout: return "Request timeout."
+        case .cancelRequest: return "Cancel Request"
+        case .notFound: return "Not Found"
+        case .unauthorized: return "Unauthorized"
+        case .internalServerError: return "Internal Server Error"
+        case .custom(let error): if let error = error as? String {return error} else {return "Oops, something went wrong"}
+        case .resultNilOrEmpty: return "Result nil or empty"
+        case .other: return "Oops, something went wrong"
+        case .missingService: return "Missing Service"
+        case .missingPaging: return "Cancel Request"
+        
+        }
+    }
 }

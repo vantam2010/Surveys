@@ -45,7 +45,7 @@ class SurveyListViewModelTests: XCTestCase {
                         completion(true)
                     }
                 } else if let error = result.error {
-                    XCTAssert(false, Utils.getErrorMessage(error: error))
+                    XCTFail(error.localizedDescription)
                 }
                 
                 completion(false)
@@ -65,9 +65,7 @@ class SurveyListViewModelTests: XCTestCase {
             guard let self = self else {return}
             if authenticated {
                 self.viewModel.onErrorHandling = { error in
-                    if let errorType = error?.localizedDescription {
-                        XCTAssert(false, errorType)
-                    }
+                    XCTFail(error.localizedDescription)
                 }
                 
                 self.dataSource.data.addObserver(self) { _ in
@@ -103,14 +101,7 @@ class SurveyListViewModelTests: XCTestCase {
             guard let self = self else {return}
             if authenticated {
                 self.viewModel.onErrorHandling = { error in
-                    if let errorResult = error {
-                        switch errorResult {
-                        case .resultNilOrEmpty:
-                            XCTFail("Got result nil or empty")
-                        default:
-                            XCTFail(Utils.getErrorMessage(error: errorResult))
-                        }
-                    }
+                    XCTFail(error.localizedDescription)
                 }
                 
                 self.dataSource.data.addObserver(self) { _ in
