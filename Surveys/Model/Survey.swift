@@ -9,10 +9,10 @@
 import Foundation
 
 class Survey: Decodable {
-    var id: String?
-    var title: String?
-    var description: String?
-    var coverImageUrl: String?
+    let id: String?
+    let title: String?
+    let description: String?
+    let coverImageUrl: String?
     
     enum CodingKeys: String, CodingKey {
         case id

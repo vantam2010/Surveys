@@ -10,8 +10,8 @@ import Foundation
 
 struct Paging {
     var page: Int
-    var totalPages: Int
-    var totalResults: Int
+    let totalPages: Int
+    let totalResults: Int
     
     init(page: Int, totalPages: Int, totalResults: Int) {
         self.page = page

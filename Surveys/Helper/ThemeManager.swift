@@ -9,10 +9,10 @@
 import UIKit
 
 struct ThemeColor {
-    var text: UIColor = .white
-    var background: UIColor = .darkGray
-    var highlight: UIColor = UIColor.init(hex: "D02424")
-    var main: UIColor = .black
+    let text: UIColor = .white
+    let background: UIColor = .darkGray
+    let highlight: UIColor = UIColor.init(hex: "D02424")
+    let main: UIColor = .black
 }
 
 struct ThemeFontSize {

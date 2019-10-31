@@ -12,7 +12,7 @@ struct Networking {
     
     static let shared = Networking.init(baseUrl: Configuration.BASE_URL)
     
-    private var baseUrl: String
+    private let baseUrl: String
     var commonParams: JSON = [:]
     
     private init(baseUrl: String) {

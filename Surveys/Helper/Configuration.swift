@@ -9,7 +9,7 @@
 import Foundation
 
 struct Configuration {
-    static var BASE_URL = "https://nimble-survey-api.herokuapp.com"
+    static let BASE_URL = "https://nimble-survey-api.herokuapp.com"
     static let OAUTH_ACCESS_TOKEN = "OAUTH_ACCESS_TOKEN"
     static let OAUTH_TOKEN_TYPE = "OAUTH_TOKEN_TYPE"
     static let USER_NAME = "carlos@nimbl3.com"
