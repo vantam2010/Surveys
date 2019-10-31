@@ -14,6 +14,7 @@
 		185725CE235A822100134279 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 185725CC235A822100134279 /* LaunchScreen.storyboard */; };
 		185725D9235A822100134279 /* SurveysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185725D8235A822100134279 /* SurveysTests.swift */; };
 		1859CCC7236B194D00087E88 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859CCC6236B194D00087E88 /* UIImage+Color.swift */; };
+		1859CCC9236B1CA700087E88 /* UIViewController+showError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859CCC8236B1CA700087E88 /* UIViewController+showError.swift */; };
 		18F6AD18235AE5E900596A6D /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD03235AE5E900596A6D /* Survey.swift */; };
 		18F6AD19235AE5E900596A6D /* Paging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD04235AE5E900596A6D /* Paging.swift */; };
 		18F6AD1A235AE5E900596A6D /* OauthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD05235AE5E900596A6D /* OauthToken.swift */; };
@@ -44,7 +45,6 @@
 		18F6AD5C235C502300596A6D /* SurveyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD5A235C502300596A6D /* SurveyListViewModel.swift */; };
 		18F6AD60235DF67B00596A6D /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD5F235DF67B00596A6D /* ThemeManager.swift */; };
 		18F6AD62235DF6BB00596A6D /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD61235DF6BB00596A6D /* UIColor+Hex.swift */; };
-		18F6AD64235E137300596A6D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD63235E137300596A6D /* NotificationManager.swift */; };
 		18F6AD66235E155100596A6D /* UIWindow+visibleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD65235E155100596A6D /* UIWindow+visibleVC.swift */; };
 		18F6AD68235E1E1B00596A6D /* SurveyListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD67235E1E1B00596A6D /* SurveyListViewModelTests.swift */; };
 		18FBD6032360FD4100BEBF39 /* DetailsSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBD6022360FD4100BEBF39 /* DetailsSurveyViewController.swift */; };
@@ -72,6 +72,7 @@
 		185725D8235A822100134279 /* SurveysTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveysTests.swift; sourceTree = "<group>"; };
 		185725DA235A822100134279 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1859CCC6236B194D00087E88 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
+		1859CCC8236B1CA700087E88 /* UIViewController+showError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+showError.swift"; sourceTree = "<group>"; };
 		18F6AD03235AE5E900596A6D /* Survey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
 		18F6AD04235AE5E900596A6D /* Paging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paging.swift; sourceTree = "<group>"; };
 		18F6AD05235AE5E900596A6D /* OauthToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OauthToken.swift; sourceTree = "<group>"; };
@@ -102,7 +103,6 @@
 		18F6AD5A235C502300596A6D /* SurveyListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyListViewModel.swift; sourceTree = "<group>"; };
 		18F6AD5F235DF67B00596A6D /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		18F6AD61235DF6BB00596A6D /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
-		18F6AD63235E137300596A6D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		18F6AD65235E155100596A6D /* UIWindow+visibleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+visibleVC.swift"; sourceTree = "<group>"; };
 		18F6AD67235E1E1B00596A6D /* SurveyListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyListViewModelTests.swift; sourceTree = "<group>"; };
 		18FBD6022360FD4100BEBF39 /* DetailsSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsSurveyViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +224,7 @@
 				18F6AD61235DF6BB00596A6D /* UIColor+Hex.swift */,
 				18F6AD65235E155100596A6D /* UIWindow+visibleVC.swift */,
 				1859CCC6236B194D00087E88 /* UIImage+Color.swift */,
+				1859CCC8236B1CA700087E88 /* UIViewController+showError.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -257,7 +258,6 @@
 				18F6AD16235AE5E900596A6D /* Utils.swift */,
 				18F6AD17235AE5E900596A6D /* Configuration.swift */,
 				18F6AD5F235DF67B00596A6D /* ThemeManager.swift */,
-				18F6AD63235E137300596A6D /* NotificationManager.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -418,9 +418,9 @@
 				18F6AD52235C4FE800596A6D /* CustomImagePageControl.swift in Sources */,
 				18F6AD54235C4FE800596A6D /* UIImageView+Cache.swift in Sources */,
 				18F6AD55235C4FE800596A6D /* Array+getElement.swift in Sources */,
-				18F6AD64235E137300596A6D /* NotificationManager.swift in Sources */,
 				18F6AD26235AE5E900596A6D /* Reachability.swift in Sources */,
 				18F6AD51235C4FE800596A6D /* UIImage+Resize.swift in Sources */,
+				1859CCC9236B1CA700087E88 /* UIViewController+showError.swift in Sources */,
 				18F6AD18235AE5E900596A6D /* Survey.swift in Sources */,
 				18F6AD19235AE5E900596A6D /* Paging.swift in Sources */,
 				18F6AD48235C4F6700596A6D /* SurveysViewController.swift in Sources */,
