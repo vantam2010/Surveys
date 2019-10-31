@@ -119,7 +119,7 @@ extension SurveysViewController {
                 self?.activityIndicatorView.stopAnimating()
                 
                 if let value = result.value {
-                    if let token = value.access_token, let type = value.token_type {
+                    if let token = value.accessToken, let type = value.tokenType {
                         UserDefaults.standard.set(token, forKey: Configuration.OAUTH_ACCESS_TOKEN)
                         UserDefaults.standard.set(type, forKey: Configuration.OAUTH_TOKEN_TYPE)
                         UserDefaults.standard.synchronize()

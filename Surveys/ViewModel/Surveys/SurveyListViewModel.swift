@@ -51,8 +51,8 @@ struct SurveyListViewModel {
                 if let value = result.value {
                     if let page = self.dataSource?.paging.page,
                         let current_items = self.dataSource?.data.value.count,
-                        let max_item = self.dataSource?.paging.max_item {
-                        if page == self.dataSource?.paging.per_page || current_items + value.count >= max_item {
+                        let max_item = self.dataSource?.paging.totalResults {
+                        if page == self.dataSource?.paging.totalPages || current_items + value.count >= max_item {
                             self.dataSource?.isLoadMore = false
                         } else {
                             self.dataSource?.paging.page = page + 1

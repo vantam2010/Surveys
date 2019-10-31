@@ -25,8 +25,8 @@ class SurveyViewCell: UICollectionViewCell {
             descLabel.text = survey.description
             indicator.color = ThemeManager.color.text
             
-            if let cover_image_url = survey.cover_image_url, cover_image_url.isValidURL {
-                coverImageView.loadImageUsingCache(withUrl: "\(cover_image_url)\(Configuration.HIGH_RESOLUTION_IMAGE_CONFIG)", resize: frame.size)
+            if let coverImageUrl = survey.coverImageUrl, coverImageUrl.isValidURL {
+                coverImageView.loadImageUsingCache(withUrl: "\(coverImageUrl)\(Configuration.HIGH_RESOLUTION_IMAGE_CONFIG)", resize: frame.size)
             } else {
                 coverImageView.image = UIImage.imageWithColor(tintColor: ThemeManager.color.main)
             }

@@ -22,7 +22,7 @@ final class SurveyService : SurveyServiceProtocol {
         // cancel previous request if already in progress
         cancelFetchData()
         
-        let params: [String: Any] = ["page": paging.page, "per_page": paging.per_page]
+        let params: [String: Any] = ["page": paging.page, "per_page": paging.totalPages]
         task = Networking.shared.makeRequest(resource: Resource.init(path: "surveys.json", method: .get, params: params), completion: completion)
     }
     

@@ -11,7 +11,7 @@ import UIKit
 class CustomImagePageControl: UIPageControl {
     
     @IBInspectable var activeImage: UIImage? = UIImage(named: "dot")
-    @IBInspectable var inactiveImage: UIImage? = UIImage(named: "circle_outline")
+    @IBInspectable var inactiveImage: UIImage? = UIImage(named: "circleOutline")
     
     override var numberOfPages: Int {
         didSet {

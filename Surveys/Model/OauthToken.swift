@@ -8,9 +8,16 @@
 
 import Foundation
 
-class OauthToken: Decodable {
-    var access_token: String?
-    var token_type: String?
-    var expires_in: Int?
-    var created_at: Int64?
+struct OauthToken: Decodable {
+    var accessToken: String?
+    var tokenType: String?
+    var expiresIn: Int?
+    var createdAt: Int64?
+    
+    enum CodingKeys: String, CodingKey {
+        case accessToken = "access_token"
+        case tokenType = "token_type"
+        case expiresIn = "expires_in"
+        case createdAt = "created_at"
+    }
 }
