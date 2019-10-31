@@ -9,7 +9,7 @@
 import Foundation
 
 extension URLRequest {
-    init<T, E>(baseUrl: String, resource: Resource<T, E>) {
+    init<T>(baseUrl: String, resource: Resource<T>) {
         let url = URL(baseUrl: baseUrl, resource: resource)
         
         self.init(url: url)

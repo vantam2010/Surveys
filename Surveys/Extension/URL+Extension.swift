@@ -9,7 +9,7 @@
 import Foundation
 
 extension URL {
-    init<T, E>(baseUrl: String, resource: Resource<T, E>) {
+    init<T>(baseUrl: String, resource: Resource<T>) {
         var components = URLComponents(string: baseUrl)!
         let resourceComponents = URLComponents(string: resource.path.absolutePath)!
         

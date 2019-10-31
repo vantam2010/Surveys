@@ -8,13 +8,13 @@
 
 import Foundation
 
-enum Result<T, CustomError> {
+enum Result<T, Error: Swift.Error> {
     case success(T)
-    case failure(ErrorResult<CustomError>)
+    case failure(Error)
 }
 
 extension Result {
-    init(value: T?, or error: ErrorResult<CustomError>) {
+    init(value: T?, or error: Error) {
         guard let value = value else {
             self = .failure(error)
             return
@@ -28,7 +28,7 @@ extension Result {
         return value
     }
     
-    var error: ErrorResult<CustomError>? {
+    var error: Error? {
         guard case let .failure(error) = self else { return nil }
         return error
     }

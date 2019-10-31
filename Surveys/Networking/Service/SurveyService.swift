@@ -9,7 +9,7 @@
 import Foundation
 
 protocol SurveyServiceProtocol : class {
-    func fetchData(paging: Paging, completion: @escaping ((Result<[Survey], CustomError>) -> Void))
+    func fetchData(paging: Paging, completion: @escaping ((Result<[Survey], ErrorResult>) -> Void))
 }
 
 final class SurveyService : SurveyServiceProtocol {
@@ -18,7 +18,7 @@ final class SurveyService : SurveyServiceProtocol {
     
     var task : URLSessionTask?
     
-    func fetchData(paging: Paging, completion: @escaping ((Result<[Survey], CustomError>) -> Void)) {
+    func fetchData(paging: Paging, completion: @escaping ((Result<[Survey], ErrorResult>) -> Void)) {
         // cancel previous request if already in progress
         cancelFetchData()
         

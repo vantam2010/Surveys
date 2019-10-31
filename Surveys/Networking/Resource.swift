@@ -18,31 +18,28 @@ enum RequestMethod: String {
     case delete = "DELETE"
 }
 
-struct Resource<T, CustomError> {
+struct Resource<T> {
     let path: Path
     let method: RequestMethod
     var headers: HTTPHeaders
     var params: JSON
     let parse: (Data) -> T?
-    let parseError: (Data) -> CustomError?
     
     init(path: String,
          method: RequestMethod = .get,
          params: JSON = [:],
          headers: HTTPHeaders = [:],
-         parse: @escaping (Data) -> T?,
-         parseError: @escaping (Data) -> CustomError?) {
+         parse: @escaping (Data) -> T?) {
         
         self.path = Path(path)
         self.method = method
         self.params = params
         self.headers = headers
         self.parse = parse
-        self.parseError = parseError
     }
 }
 
-extension Resource where T: Decodable, CustomError: Decodable {
+extension Resource where T: Decodable {
     init(jsonDecoder: JSONDecoder = JSONDecoder(),
          path: String,
          method: RequestMethod = .get,
@@ -64,9 +61,6 @@ extension Resource where T: Decodable, CustomError: Decodable {
         self.headers = newHeaders
         self.parse = {
             try? jsonDecoder.decode(T.self, from: $0)
-        }
-        self.parseError = {
-            try? jsonDecoder.decode(CustomError.self, from: $0)
         }
     }
 }

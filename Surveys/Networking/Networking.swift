@@ -19,8 +19,8 @@ struct Networking {
         self.baseUrl = baseUrl
     }
     
-    func makeRequest<T, CustomError>(resource: Resource<T, CustomError>,
-                            completion: @escaping (Result<T, CustomError>) ->()) -> URLSessionDataTask? {
+    func makeRequest<T>(resource: Resource<T>,
+                            completion: @escaping (Result<T, ErrorResult>) ->()) -> URLSessionDataTask? {
         
         if !Reachability.isConnectedToNetwork() {
             completion(.failure(.noInternetConnection))
@@ -63,7 +63,11 @@ struct Networking {
             } else if response.statusCode == 500 {
                 completion(.failure(.internalServerError))
             } else {
-                completion(.failure(data.flatMap(resource.parseError).map({.custom($0)}) ?? .other))
+                if let error = error {
+                    completion(.failure(.custom(error)))
+                } else {
+                    completion(.failure(.other))
+                }
             }
         }
         

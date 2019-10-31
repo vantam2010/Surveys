@@ -8,14 +8,14 @@
 
 import Foundation
 
-enum ErrorResult<CustomError>: Error {
+enum ErrorResult: Error {
     case noInternetConnection
     case requestTimeout
     case cancelRequest
     case notFound
     case unauthorized
     case internalServerError
-    case custom(CustomError)
+    case custom(Error)
     case resultNilOrEmpty
     case other
     case missingService
@@ -29,7 +29,7 @@ enum ErrorResult<CustomError>: Error {
         case .notFound: return "Not Found"
         case .unauthorized: return "Unauthorized"
         case .internalServerError: return "Internal Server Error"
-        case .custom(let error): if let error = error as? String {return error} else {return "Oops, something went wrong"}
+        case .custom(let error): if let error = error as? CustomError {return error.message} else {return "Oops, something went wrong"}
         case .resultNilOrEmpty: return "Result nil or empty"
         case .other: return "Oops, something went wrong"
         case .missingService: return "Missing Service"
