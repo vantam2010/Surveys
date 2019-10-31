@@ -13,6 +13,7 @@
 		185725CB235A822100134279 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 185725CA235A822100134279 /* Assets.xcassets */; };
 		185725CE235A822100134279 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 185725CC235A822100134279 /* LaunchScreen.storyboard */; };
 		185725D9235A822100134279 /* SurveysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185725D8235A822100134279 /* SurveysTests.swift */; };
+		1859CCC7236B194D00087E88 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859CCC6236B194D00087E88 /* UIImage+Color.swift */; };
 		18F6AD18235AE5E900596A6D /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD03235AE5E900596A6D /* Survey.swift */; };
 		18F6AD19235AE5E900596A6D /* Paging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD04235AE5E900596A6D /* Paging.swift */; };
 		18F6AD1A235AE5E900596A6D /* OauthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD05235AE5E900596A6D /* OauthToken.swift */; };
@@ -34,17 +35,17 @@
 		18F6AD2C235AE61600596A6D /* LoginServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD2A235AE61600596A6D /* LoginServiceTests.swift */; };
 		18F6AD48235C4F6700596A6D /* SurveysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD47235C4F6700596A6D /* SurveysViewController.swift */; };
 		18F6AD4A235C4F8C00596A6D /* SurveyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD49235C4F8C00596A6D /* SurveyViewCell.swift */; };
-		18F6AD51235C4FE800596A6D /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD4B235C4FE800596A6D /* UIImage+Extension.swift */; };
+		18F6AD51235C4FE800596A6D /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD4B235C4FE800596A6D /* UIImage+Resize.swift */; };
 		18F6AD52235C4FE800596A6D /* CustomImagePageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD4C235C4FE800596A6D /* CustomImagePageControl.swift */; };
-		18F6AD54235C4FE800596A6D /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD4E235C4FE800596A6D /* UIImageView+Extension.swift */; };
-		18F6AD55235C4FE800596A6D /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD4F235C4FE800596A6D /* Array+Extension.swift */; };
+		18F6AD54235C4FE800596A6D /* UIImageView+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD4E235C4FE800596A6D /* UIImageView+Cache.swift */; };
+		18F6AD55235C4FE800596A6D /* Array+getElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD4F235C4FE800596A6D /* Array+getElement.swift */; };
 		18F6AD56235C4FE800596A6D /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD50235C4FE800596A6D /* String+Extension.swift */; };
 		18F6AD5B235C502300596A6D /* SurveyDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD59235C502300596A6D /* SurveyDataSource.swift */; };
 		18F6AD5C235C502300596A6D /* SurveyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD5A235C502300596A6D /* SurveyListViewModel.swift */; };
 		18F6AD60235DF67B00596A6D /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD5F235DF67B00596A6D /* ThemeManager.swift */; };
-		18F6AD62235DF6BB00596A6D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD61235DF6BB00596A6D /* UIColor+Extension.swift */; };
+		18F6AD62235DF6BB00596A6D /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD61235DF6BB00596A6D /* UIColor+Hex.swift */; };
 		18F6AD64235E137300596A6D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD63235E137300596A6D /* NotificationManager.swift */; };
-		18F6AD66235E155100596A6D /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD65235E155100596A6D /* UIWindow+Extension.swift */; };
+		18F6AD66235E155100596A6D /* UIWindow+visibleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD65235E155100596A6D /* UIWindow+visibleVC.swift */; };
 		18F6AD68235E1E1B00596A6D /* SurveyListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD67235E1E1B00596A6D /* SurveyListViewModelTests.swift */; };
 		18FBD6032360FD4100BEBF39 /* DetailsSurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FBD6022360FD4100BEBF39 /* DetailsSurveyViewController.swift */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,7 @@
 		185725D4235A822100134279 /* SurveysTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SurveysTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		185725D8235A822100134279 /* SurveysTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveysTests.swift; sourceTree = "<group>"; };
 		185725DA235A822100134279 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1859CCC6236B194D00087E88 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		18F6AD03235AE5E900596A6D /* Survey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
 		18F6AD04235AE5E900596A6D /* Paging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paging.swift; sourceTree = "<group>"; };
 		18F6AD05235AE5E900596A6D /* OauthToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OauthToken.swift; sourceTree = "<group>"; };
@@ -91,17 +93,17 @@
 		18F6AD2A235AE61600596A6D /* LoginServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginServiceTests.swift; sourceTree = "<group>"; };
 		18F6AD47235C4F6700596A6D /* SurveysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveysViewController.swift; sourceTree = "<group>"; };
 		18F6AD49235C4F8C00596A6D /* SurveyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewCell.swift; sourceTree = "<group>"; };
-		18F6AD4B235C4FE800596A6D /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		18F6AD4B235C4FE800596A6D /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		18F6AD4C235C4FE800596A6D /* CustomImagePageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImagePageControl.swift; sourceTree = "<group>"; };
-		18F6AD4E235C4FE800596A6D /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
-		18F6AD4F235C4FE800596A6D /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		18F6AD4E235C4FE800596A6D /* UIImageView+Cache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Cache.swift"; sourceTree = "<group>"; };
+		18F6AD4F235C4FE800596A6D /* Array+getElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+getElement.swift"; sourceTree = "<group>"; };
 		18F6AD50235C4FE800596A6D /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		18F6AD59235C502300596A6D /* SurveyDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyDataSource.swift; sourceTree = "<group>"; };
 		18F6AD5A235C502300596A6D /* SurveyListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurveyListViewModel.swift; sourceTree = "<group>"; };
 		18F6AD5F235DF67B00596A6D /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
-		18F6AD61235DF6BB00596A6D /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		18F6AD61235DF6BB00596A6D /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		18F6AD63235E137300596A6D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
-		18F6AD65235E155100596A6D /* UIWindow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
+		18F6AD65235E155100596A6D /* UIWindow+visibleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+visibleVC.swift"; sourceTree = "<group>"; };
 		18F6AD67235E1E1B00596A6D /* SurveyListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyListViewModelTests.swift; sourceTree = "<group>"; };
 		18FBD6022360FD4100BEBF39 /* DetailsSurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsSurveyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,6 +147,7 @@
 		185725C2235A822000134279 /* Surveys */ = {
 			isa = PBXGroup;
 			children = (
+				1859CCC5236B17DB00087E88 /* CustomView */,
 				18F6AD57235C502300596A6D /* ViewModel */,
 				18F6AD45235C4F3200596A6D /* View */,
 				18F6AD08235AE5E900596A6D /* Extension */,
@@ -167,6 +170,15 @@
 				18F6AD67235E1E1B00596A6D /* SurveyListViewModelTests.swift */,
 			);
 			path = SurveysTests;
+			sourceTree = "<group>";
+		};
+		1859CCC5236B17DB00087E88 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				180418292360E9F800FDC7AF /* SurveyButton.swift */,
+				18F6AD4C235C4FE800596A6D /* CustomImagePageControl.swift */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 		18F6AD00235AE1CC00596A6D /* Supporting Files */ = {
@@ -203,16 +215,15 @@
 		18F6AD08235AE5E900596A6D /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				18F6AD4F235C4FE800596A6D /* Array+Extension.swift */,
-				18F6AD4C235C4FE800596A6D /* CustomImagePageControl.swift */,
+				18F6AD4F235C4FE800596A6D /* Array+getElement.swift */,
 				18F6AD50235C4FE800596A6D /* String+Extension.swift */,
-				18F6AD4B235C4FE800596A6D /* UIImage+Extension.swift */,
-				18F6AD4E235C4FE800596A6D /* UIImageView+Extension.swift */,
+				18F6AD4B235C4FE800596A6D /* UIImage+Resize.swift */,
+				18F6AD4E235C4FE800596A6D /* UIImageView+Cache.swift */,
 				18F6AD09235AE5E900596A6D /* URL+Extension.swift */,
 				18F6AD0A235AE5E900596A6D /* URLRequest+Extension.swift */,
-				18F6AD61235DF6BB00596A6D /* UIColor+Extension.swift */,
-				18F6AD65235E155100596A6D /* UIWindow+Extension.swift */,
-				180418292360E9F800FDC7AF /* SurveyButton.swift */,
+				18F6AD61235DF6BB00596A6D /* UIColor+Hex.swift */,
+				18F6AD65235E155100596A6D /* UIWindow+visibleVC.swift */,
+				1859CCC6236B194D00087E88 /* UIImage+Color.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -405,29 +416,30 @@
 				18F6AD1B235AE5E900596A6D /* DynamicValue.swift in Sources */,
 				18F6AD4A235C4F8C00596A6D /* SurveyViewCell.swift in Sources */,
 				18F6AD52235C4FE800596A6D /* CustomImagePageControl.swift in Sources */,
-				18F6AD54235C4FE800596A6D /* UIImageView+Extension.swift in Sources */,
-				18F6AD55235C4FE800596A6D /* Array+Extension.swift in Sources */,
+				18F6AD54235C4FE800596A6D /* UIImageView+Cache.swift in Sources */,
+				18F6AD55235C4FE800596A6D /* Array+getElement.swift in Sources */,
 				18F6AD64235E137300596A6D /* NotificationManager.swift in Sources */,
 				18F6AD26235AE5E900596A6D /* Reachability.swift in Sources */,
-				18F6AD51235C4FE800596A6D /* UIImage+Extension.swift in Sources */,
+				18F6AD51235C4FE800596A6D /* UIImage+Resize.swift in Sources */,
 				18F6AD18235AE5E900596A6D /* Survey.swift in Sources */,
 				18F6AD19235AE5E900596A6D /* Paging.swift in Sources */,
 				18F6AD48235C4F6700596A6D /* SurveysViewController.swift in Sources */,
 				18F6AD24235AE5E900596A6D /* LoginService.swift in Sources */,
 				18F6AD56235C4FE800596A6D /* String+Extension.swift in Sources */,
-				18F6AD62235DF6BB00596A6D /* UIColor+Extension.swift in Sources */,
+				18F6AD62235DF6BB00596A6D /* UIColor+Hex.swift in Sources */,
 				18F6AD27235AE5E900596A6D /* Utils.swift in Sources */,
 				18F6AD1E235AE5E900596A6D /* URLRequest+Extension.swift in Sources */,
 				1804182A2360E9F800FDC7AF /* SurveyButton.swift in Sources */,
 				18FBD6032360FD4100BEBF39 /* DetailsSurveyViewController.swift in Sources */,
 				18F6AD5C235C502300596A6D /* SurveyListViewModel.swift in Sources */,
-				18F6AD66235E155100596A6D /* UIWindow+Extension.swift in Sources */,
+				18F6AD66235E155100596A6D /* UIWindow+visibleVC.swift in Sources */,
 				18F6AD21235AE5E900596A6D /* Resource.swift in Sources */,
 				18F6AD22235AE5E900596A6D /* Path.swift in Sources */,
 				185725C4235A822000134279 /* AppDelegate.swift in Sources */,
 				18F6AD20235AE5E900596A6D /* Result.swift in Sources */,
 				18F6AD23235AE5E900596A6D /* SurveyService.swift in Sources */,
 				18F6AD60235DF67B00596A6D /* ThemeManager.swift in Sources */,
+				1859CCC7236B194D00087E88 /* UIImage+Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
