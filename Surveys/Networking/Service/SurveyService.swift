@@ -20,7 +20,7 @@ final class SurveyService : SurveyServiceProtocol {
     
     func fetchData(paging: Paging, completion: @escaping ((Result<[Survey], CustomError>) -> Void)) {
         // cancel previous request if already in progress
-        self.cancelFetchData()
+        cancelFetchData()
         
         let params: [String: Any] = ["page": paging.page, "per_page": paging.per_page]
         task = Networking.shared.makeRequest(resource: Resource.init(path: "surveys.json", method: .get, params: params), completion: completion)

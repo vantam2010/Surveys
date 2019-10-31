@@ -25,7 +25,7 @@ public struct ThemeManager {
     private static var themeFontSize: ThemeFontSize?
     
     public static var color: ThemeColor {
-        if let storedTheme = self.themeColor {
+        if let storedTheme = themeColor {
             return storedTheme
         } else {
             return ThemeColor()
@@ -33,7 +33,7 @@ public struct ThemeManager {
     }
     
     public static var fontSize: ThemeFontSize {
-        if let storedTheme = self.themeFontSize {
+        if let storedTheme = themeFontSize {
             return storedTheme
         } else {
             return ThemeFontSize()

@@ -14,7 +14,7 @@ extension UIImage {
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0)
         tintColor.setFill()
         UIRectFill(rect)
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
         UIGraphicsEndImageContext()
         return image
     }

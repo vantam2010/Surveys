@@ -14,7 +14,7 @@ class DynamicValue<T> {
     
     var value : T {
         didSet {
-            self.notify()
+            notify()
         }
     }
     
@@ -29,8 +29,8 @@ class DynamicValue<T> {
     }
     
     public func addAndNotify(observer: NSObject, completionHandler: @escaping CompletionHandler) {
-        self.addObserver(observer, completionHandler: completionHandler)
-        self.notify()
+        addObserver(observer, completionHandler: completionHandler)
+        notify()
     }
     
     private func notify() {

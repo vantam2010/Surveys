@@ -64,8 +64,8 @@ class SurveysViewController: UIViewController {
         
         collectionView.frame = .zero
         collectionView.backgroundColor = ThemeManager.color.background
-        collectionView.dataSource = self.dataSource
-        collectionView.delegate = self.dataSource
+        collectionView.dataSource = dataSource
+        collectionView.delegate = dataSource
     }
     
     private func setupViewModel() {

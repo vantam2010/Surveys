@@ -12,7 +12,7 @@ class DetailsSurveyViewController: UIViewController {
     
     var survey: Survey? {
         didSet {
-            self.title = self.survey?.title
+            title = survey?.title
         }
     }
     

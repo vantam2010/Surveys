@@ -98,7 +98,7 @@ class SurverServiceTests: XCTestCase {
             }
         }
         
-        self.wait(for: [expectation], timeout: timeout)
+        wait(for: [expectation], timeout: timeout)
     }
     
     // expect return unauthorized error
@@ -127,6 +127,6 @@ class SurverServiceTests: XCTestCase {
             }
         }
         
-        self.wait(for: [expectation], timeout: timeout)
+        wait(for: [expectation], timeout: timeout)
     }
 }

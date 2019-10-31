@@ -15,17 +15,17 @@ class SurveyButton: UIButton {
     @IBInspectable var background: UIColor = ThemeManager.color.highlight { didSet { updateBackgroundColor() }}
     
     func updatTextColor() {
-        self.tintColor = tintColor
+        tintColor = text
     }
     
     func updateBackgroundColor() {
-        self.backgroundColor = background
+        backgroundColor = background
     }
     
     override public func layoutSubviews() {
         super.layoutSubviews()
-        self.layer.cornerRadius = self.frame.height/2
-        self.tintColor = tintColor
-        self.backgroundColor = background
+        layer.cornerRadius = frame.height/2
+        tintColor = text
+        backgroundColor = background
     }
 }

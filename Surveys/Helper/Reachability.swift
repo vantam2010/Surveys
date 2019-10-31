@@ -23,7 +23,8 @@ final class Reachability {
         
         var flags: SCNetworkReachabilityFlags = SCNetworkReachabilityFlags(rawValue: 0)
         
-        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+        guard let routeReachability = defaultRouteReachability else { return false }
+        if !SCNetworkReachabilityGetFlags(routeReachability, &flags) {
             return false
         }
         

@@ -11,6 +11,6 @@ import Foundation
 extension Array {
     //MARK: - using this method to avoid out of index
     func getElement(_ index: Int) -> Element? {
-        return (0 <= index && index < self.count ? self[index] : nil)
+        return (0 <= index && index < count ? self[index] : nil)
     }
 }
