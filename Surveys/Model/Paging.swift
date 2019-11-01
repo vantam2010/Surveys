@@ -8,10 +8,16 @@
 
 import Foundation
 
-struct Paging {
+struct Paging: Codable {
     var page: Int
     var totalPages: Int
     var totalResults: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case page
+        case totalPages = "per_page"
+        case totalResults
+    }
     
     init(page: Int, totalPages: Int, totalResults: Int) {
         self.page = page

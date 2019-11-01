@@ -113,7 +113,7 @@ extension SurveysViewController {
         activityIndicatorView.isHidden = false
         activityIndicatorView.startAnimating()
         
-        service.login(username: Configuration.USER_NAME, password: Configuration.PASSWORD) { [weak self] result in
+        service.login() { [weak self] result in
             DispatchQueue.main.async {
                 self?.activityIndicatorView.isHidden = true
                 self?.activityIndicatorView.stopAnimating()

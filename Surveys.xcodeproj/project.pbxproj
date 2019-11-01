@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1804182A2360E9F800FDC7AF /* SurveyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180418292360E9F800FDC7AF /* SurveyButton.swift */; };
+		1805B95D236BFF5F00E29175 /* Encodable+dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1805B95C236BFF5F00E29175 /* Encodable+dictionary.swift */; };
+		1805B95F236C007F00E29175 /* OauthUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1805B95E236C007F00E29175 /* OauthUser.swift */; };
 		1805F919236B827F00DC7AA8 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1805F918236B827F00DC7AA8 /* KeychainService.swift */; };
 		180C87EA236BCC5E00080112 /* KeychainServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180C87E9236BCC5E00080112 /* KeychainServiceTests.swift */; };
 		185725C4235A822000134279 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185725C3235A822000134279 /* AppDelegate.swift */; };
@@ -64,6 +66,8 @@
 
 /* Begin PBXFileReference section */
 		180418292360E9F800FDC7AF /* SurveyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyButton.swift; sourceTree = "<group>"; };
+		1805B95C236BFF5F00E29175 /* Encodable+dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+dictionary.swift"; sourceTree = "<group>"; };
+		1805B95E236C007F00E29175 /* OauthUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OauthUser.swift; sourceTree = "<group>"; };
 		1805F917236B803500DC7AA8 /* Surveys.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Surveys.entitlements; sourceTree = "<group>"; };
 		1805F918236B827F00DC7AA8 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		180C87E9236BCC5E00080112 /* KeychainServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceTests.swift; sourceTree = "<group>"; };
@@ -215,6 +219,7 @@
 				18F6AD05235AE5E900596A6D /* OauthToken.swift */,
 				18F6AD06235AE5E900596A6D /* DynamicValue.swift */,
 				18F6AD07235AE5E900596A6D /* CustomError.swift */,
+				1805B95E236C007F00E29175 /* OauthUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -232,6 +237,7 @@
 				18F6AD65235E155100596A6D /* UIWindow+visibleVC.swift */,
 				1859CCC6236B194D00087E88 /* UIImage+Color.swift */,
 				1859CCC8236B1CA700087E88 /* UIViewController+showError.swift */,
+				1805B95C236BFF5F00E29175 /* Encodable+dictionary.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -447,9 +453,11 @@
 				18FBD6032360FD4100BEBF39 /* DetailsSurveyViewController.swift in Sources */,
 				18F6AD5C235C502300596A6D /* SurveyListViewModel.swift in Sources */,
 				18F6AD66235E155100596A6D /* UIWindow+visibleVC.swift in Sources */,
+				1805B95F236C007F00E29175 /* OauthUser.swift in Sources */,
 				18F6AD21235AE5E900596A6D /* Resource.swift in Sources */,
 				18F6AD22235AE5E900596A6D /* Path.swift in Sources */,
 				185725C4235A822000134279 /* AppDelegate.swift in Sources */,
+				1805B95D236BFF5F00E29175 /* Encodable+dictionary.swift in Sources */,
 				18F6AD20235AE5E900596A6D /* Result.swift in Sources */,
 				18F6AD23235AE5E900596A6D /* SurveyService.swift in Sources */,
 				18F6AD60235DF67B00596A6D /* ThemeManager.swift in Sources */,
