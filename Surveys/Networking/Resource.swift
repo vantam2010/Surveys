@@ -23,18 +23,21 @@ struct Resource<T> {
     let method: RequestMethod
     var headers: HTTPHeaders
     var params: JSON
+    let service: KeychainService
     let parse: (Data) -> T?
     
     init(path: String,
          method: RequestMethod = .get,
          params: JSON = [:],
          headers: HTTPHeaders = [:],
+         service: KeychainService = KeychainService.shared,
          parse: @escaping (Data) -> T?) {
         
         self.path = Path(path)
         self.method = method
         self.params = params
         self.headers = headers
+        self.service = service
         self.parse = parse
     }
 }
@@ -44,21 +47,25 @@ extension Resource where T: Decodable {
          path: String,
          method: RequestMethod = .get,
          params: JSON = [:],
-         headers: HTTPHeaders = [:]) {
+         headers: HTTPHeaders = [:],
+         service: KeychainService = KeychainService.shared) {
         
         var newHeaders = headers
         newHeaders["Accept"] = "application/json"
         newHeaders["Content-Type"] = "application/json"
-        
-        if let token = UserDefaults.standard.string(forKey: Configuration.OAUTH_ACCESS_TOKEN),
-           let type = UserDefaults.standard.string(forKey: Configuration.OAUTH_TOKEN_TYPE){
-            newHeaders["Authorization"] = "\(type) \(token)"
+        do {
+            if let token = try service.getToken()  {
+                newHeaders["Authorization"] = "bearer \(token)"
+            }
+        } catch (let e) {
+            print(e)
         }
         
         self.path = Path(path)
         self.method = method
         self.params = params
         self.headers = newHeaders
+        self.service = service
         self.parse = {
             try? jsonDecoder.decode(T.self, from: $0)
         }

@@ -37,7 +37,7 @@ class SurveyListViewModelTests: XCTestCase {
         if UserDefaults.standard.object(forKey: Configuration.OAUTH_ACCESS_TOKEN) == nil {
             loginService.login(username: Configuration.USER_NAME, password: Configuration.PASSWORD) { result in
                 if let value = result.value {
-                    if let token = value.access_token, let type = value.token_type {
+                    if let token = value.accessToken, let type = value.tokenType {
                         UserDefaults.standard.set(token, forKey: Configuration.OAUTH_ACCESS_TOKEN)
                         UserDefaults.standard.set(type, forKey: Configuration.OAUTH_TOKEN_TYPE)
                         UserDefaults.standard.synchronize()
@@ -57,7 +57,7 @@ class SurveyListViewModelTests: XCTestCase {
     
     // get data from page 1 to 10 and max item is 20
     func testFetchData_With_MaxItem_20() {
-        dataSource?.paging.max_item = 20
+        dataSource?.paging.totalResults = 20
         
         let expectation = XCTestExpectation(description: "Loading surveys")
         
@@ -93,7 +93,7 @@ class SurveyListViewModelTests: XCTestCase {
     
     // get data from page 1 to 10 and max item is 100
     func testFetchData_With_MaxItem_100() {
-        dataSource?.paging.max_item = 100
+        dataSource?.paging.totalResults = 100
         
         let expectation = XCTestExpectation(description: "Loading surveys")
         

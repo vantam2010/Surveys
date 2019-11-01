@@ -119,11 +119,12 @@ extension SurveysViewController {
                 self?.activityIndicatorView.stopAnimating()
                 
                 if let value = result.value {
-                    if let token = value.accessToken, let type = value.tokenType {
-                        UserDefaults.standard.set(token, forKey: Configuration.OAUTH_ACCESS_TOKEN)
-                        UserDefaults.standard.set(type, forKey: Configuration.OAUTH_TOKEN_TYPE)
-                        UserDefaults.standard.synchronize()
-                        
+                    if let token = value.accessToken {
+                        do {
+                            try KeychainService.shared.save(token: token)
+                        } catch (let e) {
+                            print(e.localizedDescription)
+                        }
                         self?.viewModel.fetchData()
                     }
                 } else if let error = result.error {
@@ -134,16 +135,22 @@ extension SurveysViewController {
     }
     
     @objc fileprivate func fetchData() {
-        if UserDefaults.standard.object(forKey: Configuration.OAUTH_ACCESS_TOKEN) == nil {
-            login()
-        } else {
-            if viewModel.dataSource?.data.value.count == 0 {
-                activityIndicatorView.isHidden = false
-                activityIndicatorView.startAnimating()
+        do {
+            let token = try KeychainService.shared.getToken()
+            if token == nil {
+                login()
+            } else {
+                if viewModel.dataSource?.data.value.count == 0 {
+                    activityIndicatorView.isHidden = false
+                    activityIndicatorView.startAnimating()
+                }
+                
+                viewModel.fetchData()
             }
-            
-            viewModel.fetchData()
+        } catch (let e) {
+            print(e.localizedDescription)
         }
+        
     }
     
     private func refreshData() {

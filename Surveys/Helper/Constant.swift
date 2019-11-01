@@ -15,7 +15,7 @@ enum ErrorResult: Error {
     case notFound
     case unauthorized
     case internalServerError
-    case custom(Error)
+    case unhandledError(String)
     case resultNilOrEmpty
     case other
     case missingService
@@ -29,12 +29,26 @@ enum ErrorResult: Error {
         case .notFound: return "Not Found"
         case .unauthorized: return "Unauthorized"
         case .internalServerError: return "Internal Server Error"
-        case .custom(let error): if let error = error as? CustomError {return error.message} else {return "Oops, something went wrong"}
+        case .unhandledError(let message): return message
         case .resultNilOrEmpty: return "Result nil or empty"
         case .other: return "Oops, something went wrong"
         case .missingService: return "Missing Service"
         case .missingPaging: return "Cancel Request"
         
+        }
+    }
+}
+
+enum KeychainError: Error {
+    case string2DataConversionError
+    case data2StringConversionError
+    case unhandledError(message: String)
+    
+    var localizedDescription: String {
+        switch self {
+        case .string2DataConversionError: return "String to Data conversion error"
+        case .data2StringConversionError: return "Data to String conversion error"
+        case .unhandledError(let message): return message     
         }
     }
 }

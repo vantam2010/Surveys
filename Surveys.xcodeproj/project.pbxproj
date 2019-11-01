@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1804182A2360E9F800FDC7AF /* SurveyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180418292360E9F800FDC7AF /* SurveyButton.swift */; };
+		1805F919236B827F00DC7AA8 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1805F918236B827F00DC7AA8 /* KeychainService.swift */; };
+		180C87EA236BCC5E00080112 /* KeychainServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180C87E9236BCC5E00080112 /* KeychainServiceTests.swift */; };
 		185725C4235A822000134279 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185725C3235A822000134279 /* AppDelegate.swift */; };
 		185725C9235A822000134279 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 185725C7235A822000134279 /* Main.storyboard */; };
 		185725CB235A822100134279 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 185725CA235A822100134279 /* Assets.xcassets */; };
@@ -62,6 +64,9 @@
 
 /* Begin PBXFileReference section */
 		180418292360E9F800FDC7AF /* SurveyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyButton.swift; sourceTree = "<group>"; };
+		1805F917236B803500DC7AA8 /* Surveys.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Surveys.entitlements; sourceTree = "<group>"; };
+		1805F918236B827F00DC7AA8 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		180C87E9236BCC5E00080112 /* KeychainServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceTests.swift; sourceTree = "<group>"; };
 		185725C0235A822000134279 /* Surveys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Surveys.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		185725C3235A822000134279 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		185725C8235A822000134279 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -147,6 +152,7 @@
 		185725C2235A822000134279 /* Surveys */ = {
 			isa = PBXGroup;
 			children = (
+				1805F917236B803500DC7AA8 /* Surveys.entitlements */,
 				1859CCC5236B17DB00087E88 /* CustomView */,
 				18F6AD57235C502300596A6D /* ViewModel */,
 				18F6AD45235C4F3200596A6D /* View */,
@@ -168,6 +174,7 @@
 				18F6AD2A235AE61600596A6D /* LoginServiceTests.swift */,
 				18F6AD29235AE61600596A6D /* SurverServiceTests.swift */,
 				18F6AD67235E1E1B00596A6D /* SurveyListViewModelTests.swift */,
+				180C87E9236BCC5E00080112 /* KeychainServiceTests.swift */,
 			);
 			path = SurveysTests;
 			sourceTree = "<group>";
@@ -258,6 +265,7 @@
 				18F6AD16235AE5E900596A6D /* Utils.swift */,
 				18F6AD17235AE5E900596A6D /* Configuration.swift */,
 				18F6AD5F235DF67B00596A6D /* ThemeManager.swift */,
+				1805F918236B827F00DC7AA8 /* KeychainService.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -355,6 +363,11 @@
 				TargetAttributes = {
 					185725BF235A822000134279 = {
 						CreatedOnToolsVersion = 10.3;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					185725D3235A822100134279 = {
 						CreatedOnToolsVersion = 10.3;
@@ -424,6 +437,7 @@
 				18F6AD18235AE5E900596A6D /* Survey.swift in Sources */,
 				18F6AD19235AE5E900596A6D /* Paging.swift in Sources */,
 				18F6AD48235C4F6700596A6D /* SurveysViewController.swift in Sources */,
+				1805F919236B827F00DC7AA8 /* KeychainService.swift in Sources */,
 				18F6AD24235AE5E900596A6D /* LoginService.swift in Sources */,
 				18F6AD56235C4FE800596A6D /* String+Extension.swift in Sources */,
 				18F6AD62235DF6BB00596A6D /* UIColor+Hex.swift in Sources */,
@@ -449,6 +463,7 @@
 			files = (
 				18F6AD2C235AE61600596A6D /* LoginServiceTests.swift in Sources */,
 				18F6AD2B235AE61600596A6D /* SurverServiceTests.swift in Sources */,
+				180C87EA236BCC5E00080112 /* KeychainServiceTests.swift in Sources */,
 				18F6AD68235E1E1B00596A6D /* SurveyListViewModelTests.swift in Sources */,
 				185725D9235A822100134279 /* SurveysTests.swift in Sources */,
 			);
@@ -604,6 +619,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Surveys/Surveys.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NK54E5ZXTV;
 				INFOPLIST_FILE = "$(SRCROOT)/Surveys/Supporting Files/Info.plist";
@@ -623,6 +639,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Surveys/Surveys.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NK54E5ZXTV;
 				INFOPLIST_FILE = "$(SRCROOT)/Surveys/Supporting Files/Info.plist";

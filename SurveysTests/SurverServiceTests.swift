@@ -20,7 +20,7 @@ class SurverServiceTests: XCTestCase {
         super.setUp()
         loginService = LoginService.shared
         surveyService = SurveyService.shared
-        paging = Paging(page: 1, per_page: 10, max_item: 20)
+        paging = Paging(page: 1, totalPages: 10, totalResults: 20)
     }
     
     override func tearDown() {
@@ -34,7 +34,7 @@ class SurverServiceTests: XCTestCase {
         if UserDefaults.standard.object(forKey: Configuration.OAUTH_ACCESS_TOKEN) == nil {
             loginService.login(username: Configuration.USER_NAME, password: Configuration.PASSWORD) { result in
                 if let value = result.value {
-                    if let token = value.access_token, let type = value.token_type {
+                    if let token = value.accessToken, let type = value.tokenType {
                         UserDefaults.standard.set(token, forKey: Configuration.OAUTH_ACCESS_TOKEN)
                         UserDefaults.standard.set(type, forKey: Configuration.OAUTH_TOKEN_TYPE)
                         UserDefaults.standard.synchronize()
@@ -116,7 +116,7 @@ class SurverServiceTests: XCTestCase {
             DispatchQueue.main.async {
                 
                 if let errorResult = result.error {
-                    if errorResult.localizedDescription == ErrorResult<Any>.unauthorized.localizedDescription {
+                    if errorResult.localizedDescription == ErrorResult.unauthorized.localizedDescription {
                         expectation.fulfill()
                     } else {
                         XCTFail(errorResult.localizedDescription)

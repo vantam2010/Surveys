@@ -38,7 +38,7 @@ class LoginServiceTests: XCTestCase {
         service.login(username: Configuration.USER_NAME, password: Configuration.PASSWORD) { result in
             DispatchQueue.main.async {
                 if let value = result.value {
-                    if let token = value.access_token, let type = value.token_type {
+                    if let token = value.accessToken, let type = value.tokenType {
                         UserDefaults.standard.set(token, forKey: Configuration.OAUTH_ACCESS_TOKEN)
                         UserDefaults.standard.set(type, forKey: Configuration.OAUTH_TOKEN_TYPE)
                         UserDefaults.standard.synchronize()
