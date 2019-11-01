@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Networking {
+class Networking {
     
     static let shared = Networking.init(baseUrl: Configuration.BASE_URL)
     
