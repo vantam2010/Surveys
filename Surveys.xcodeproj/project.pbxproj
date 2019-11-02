@@ -10,7 +10,16 @@
 		1804182A2360E9F800FDC7AF /* SurveyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180418292360E9F800FDC7AF /* SurveyButton.swift */; };
 		1805B95D236BFF5F00E29175 /* Encodable+dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1805B95C236BFF5F00E29175 /* Encodable+dictionary.swift */; };
 		1805B95F236C007F00E29175 /* OauthUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1805B95E236C007F00E29175 /* OauthUser.swift */; };
+		1805B966236C14C800E29175 /* SurveyServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1805B965236C14C800E29175 /* SurveyServiceMock.swift */; };
+		1805B96C236C1F4200E29175 /* SurveyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1805B96B236C1F4200E29175 /* SurveyTests.swift */; };
+		1805B96F236C21DA00E29175 /* SurveyList.json in Resources */ = {isa = PBXBuildFile; fileRef = 1805B96D236C21DA00E29175 /* SurveyList.json */; };
+		1805B970236C21DA00E29175 /* OauthToken.json in Resources */ = {isa = PBXBuildFile; fileRef = 1805B96E236C21DA00E29175 /* OauthToken.json */; };
+		1805B974236C292700E29175 /* LoginServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1805B973236C292700E29175 /* LoginServiceMock.swift */; };
 		1805F919236B827F00DC7AA8 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1805F918236B827F00DC7AA8 /* KeychainService.swift */; };
+		180AF783236C5EA300FAEBFD /* OauthTokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180AF782236C5EA300FAEBFD /* OauthTokenTests.swift */; };
+		180AF785236C642F00FAEBFD /* URLSessionDataTaskMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180AF784236C642F00FAEBFD /* URLSessionDataTaskMock.swift */; };
+		180AF787236C648200FAEBFD /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180AF786236C648200FAEBFD /* URLSessionMock.swift */; };
+		180AF78B236CDF6700FAEBFD /* NetworkingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180AF78A236CDF6700FAEBFD /* NetworkingTests.swift */; };
 		180C87EA236BCC5E00080112 /* KeychainServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180C87E9236BCC5E00080112 /* KeychainServiceTests.swift */; };
 		185725C4235A822000134279 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185725C3235A822000134279 /* AppDelegate.swift */; };
 		185725C9235A822000134279 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 185725C7235A822000134279 /* Main.storyboard */; };
@@ -68,8 +77,17 @@
 		180418292360E9F800FDC7AF /* SurveyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyButton.swift; sourceTree = "<group>"; };
 		1805B95C236BFF5F00E29175 /* Encodable+dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+dictionary.swift"; sourceTree = "<group>"; };
 		1805B95E236C007F00E29175 /* OauthUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OauthUser.swift; sourceTree = "<group>"; };
+		1805B965236C14C800E29175 /* SurveyServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyServiceMock.swift; sourceTree = "<group>"; };
+		1805B96B236C1F4200E29175 /* SurveyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyTests.swift; sourceTree = "<group>"; };
+		1805B96D236C21DA00E29175 /* SurveyList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SurveyList.json; sourceTree = "<group>"; };
+		1805B96E236C21DA00E29175 /* OauthToken.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = OauthToken.json; sourceTree = "<group>"; };
+		1805B973236C292700E29175 /* LoginServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceMock.swift; sourceTree = "<group>"; };
 		1805F917236B803500DC7AA8 /* Surveys.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Surveys.entitlements; sourceTree = "<group>"; };
 		1805F918236B827F00DC7AA8 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		180AF782236C5EA300FAEBFD /* OauthTokenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OauthTokenTests.swift; sourceTree = "<group>"; };
+		180AF784236C642F00FAEBFD /* URLSessionDataTaskMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskMock.swift; sourceTree = "<group>"; };
+		180AF786236C648200FAEBFD /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
+		180AF78A236CDF6700FAEBFD /* NetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingTests.swift; sourceTree = "<group>"; };
 		180C87E9236BCC5E00080112 /* KeychainServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceTests.swift; sourceTree = "<group>"; };
 		185725C0235A822000134279 /* Surveys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Surveys.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		185725C3235A822000134279 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +153,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1805B960236C0F1400E29175 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				18F6AD67235E1E1B00596A6D /* SurveyListViewModelTests.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1805B967236C195000E29175 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				18F6AD2A235AE61600596A6D /* LoginServiceTests.swift */,
+				18F6AD29235AE61600596A6D /* SurverServiceTests.swift */,
+				180AF78A236CDF6700FAEBFD /* NetworkingTests.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		1805B968236C1BE000E29175 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				180C87E9236BCC5E00080112 /* KeychainServiceTests.swift */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
+		1805B969236C1C0E00E29175 /* MockData */ = {
+			isa = PBXGroup;
+			children = (
+				1805B96E236C21DA00E29175 /* OauthToken.json */,
+				1805B96D236C21DA00E29175 /* SurveyList.json */,
+				1805B965236C14C800E29175 /* SurveyServiceMock.swift */,
+				1805B973236C292700E29175 /* LoginServiceMock.swift */,
+				180AF784236C642F00FAEBFD /* URLSessionDataTaskMock.swift */,
+				180AF786236C648200FAEBFD /* URLSessionMock.swift */,
+			);
+			path = MockData;
+			sourceTree = "<group>";
+		};
+		1805B96A236C1F3000E29175 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1805B96B236C1F4200E29175 /* SurveyTests.swift */,
+				180AF782236C5EA300FAEBFD /* OauthTokenTests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		185725B7235A822000134279 = {
 			isa = PBXGroup;
 			children = (
@@ -173,12 +239,13 @@
 		185725D7235A822100134279 /* SurveysTests */ = {
 			isa = PBXGroup;
 			children = (
+				1805B96A236C1F3000E29175 /* Model */,
+				1805B969236C1C0E00E29175 /* MockData */,
+				1805B968236C1BE000E29175 /* Keychain */,
+				1805B967236C195000E29175 /* Networking */,
+				1805B960236C0F1400E29175 /* ViewModel */,
 				185725D8235A822100134279 /* SurveysTests.swift */,
 				185725DA235A822100134279 /* Info.plist */,
-				18F6AD2A235AE61600596A6D /* LoginServiceTests.swift */,
-				18F6AD29235AE61600596A6D /* SurverServiceTests.swift */,
-				18F6AD67235E1E1B00596A6D /* SurveyListViewModelTests.swift */,
-				180C87E9236BCC5E00080112 /* KeychainServiceTests.swift */,
 			);
 			path = SurveysTests;
 			sourceTree = "<group>";
@@ -415,6 +482,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1805B96F236C21DA00E29175 /* SurveyList.json in Resources */,
+				1805B970236C21DA00E29175 /* OauthToken.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,11 +538,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				180AF787236C648200FAEBFD /* URLSessionMock.swift in Sources */,
+				1805B966236C14C800E29175 /* SurveyServiceMock.swift in Sources */,
+				180AF785236C642F00FAEBFD /* URLSessionDataTaskMock.swift in Sources */,
+				1805B974236C292700E29175 /* LoginServiceMock.swift in Sources */,
 				18F6AD2C235AE61600596A6D /* LoginServiceTests.swift in Sources */,
 				18F6AD2B235AE61600596A6D /* SurverServiceTests.swift in Sources */,
 				180C87EA236BCC5E00080112 /* KeychainServiceTests.swift in Sources */,
 				18F6AD68235E1E1B00596A6D /* SurveyListViewModelTests.swift in Sources */,
+				1805B96C236C1F4200E29175 /* SurveyTests.swift in Sources */,
 				185725D9235A822100134279 /* SurveysTests.swift in Sources */,
+				180AF783236C5EA300FAEBFD /* OauthTokenTests.swift in Sources */,
+				180AF78B236CDF6700FAEBFD /* NetworkingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
