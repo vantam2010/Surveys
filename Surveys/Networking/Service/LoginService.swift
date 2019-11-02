@@ -8,16 +8,16 @@
 
 import Foundation
 
-protocol LoginServiceProtocol : class {
+protocol LoginServiceProtocol: class {
     func login(completion: @escaping ((Result<OauthToken, ErrorResult>) -> Void))
 }
 
-final class LoginService : LoginServiceProtocol {
+final class LoginService: LoginServiceProtocol {
     static let shared = LoginService()
     
     let oauthUser = OauthUser.init(grantType: "password", username: Configuration.USER_NAME, password: Configuration.PASSWORD)
     
     func login(completion: @escaping ((Result<OauthToken, ErrorResult>) -> Void)) {
-        _ = Networking.shared.makeRequest(resource: Resource.init(path: "oauth/token", method: .post, params: oauthUser.dictionary ?? [:]), completion: completion)
+        _ = Networking().makeRequest(resource: Resource.init(baseUrl: Configuration.BASE_URL, path: "oauth/token", method: .post, params: oauthUser.dictionary ?? [:]), completion: completion)
     }
 }

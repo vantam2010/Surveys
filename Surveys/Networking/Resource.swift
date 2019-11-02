@@ -19,6 +19,7 @@ enum RequestMethod: String {
 }
 
 struct Resource<T> {
+    let baseUrl: String
     let path: Path
     let method: RequestMethod
     var headers: HTTPHeaders
@@ -26,13 +27,15 @@ struct Resource<T> {
     let service: KeychainService
     let parse: (Data) -> T?
     
-    init(path: String,
+    init(baseUrl: String,
+         path: String,
          method: RequestMethod = .get,
          params: JSON = [:],
          headers: HTTPHeaders = [:],
          service: KeychainService = KeychainService.shared,
          parse: @escaping (Data) -> T?) {
         
+        self.baseUrl = baseUrl
         self.path = Path(path)
         self.method = method
         self.params = params
@@ -44,6 +47,7 @@ struct Resource<T> {
 
 extension Resource where T: Decodable {
     init(jsonDecoder: JSONDecoder = JSONDecoder(),
+         baseUrl: String,
          path: String,
          method: RequestMethod = .get,
          params: JSON = [:],
@@ -61,6 +65,7 @@ extension Resource where T: Decodable {
             print(e)
         }
         
+        self.baseUrl = baseUrl
         self.path = Path(path)
         self.method = method
         self.params = params

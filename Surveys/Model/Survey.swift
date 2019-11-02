@@ -20,4 +20,12 @@ class Survey: Decodable {
         case description
         case coverImageUrl = "cover_image_url"
     }
+    
+    init(id: String, title: String, description: String, coverImageUrl: String) {
+        self.id = id
+        self.title = title
+        self.description = description
+        self.coverImageUrl = coverImageUrl
+    }
+
 }

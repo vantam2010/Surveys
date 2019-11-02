@@ -10,20 +10,17 @@ import Foundation
 
 class Networking {
     
-    static let shared = Networking.init(baseUrl: Configuration.BASE_URL)
-    
-    private let baseUrl: String
+    private let session: URLSession
     var commonParams: JSON = [:]
     
-    private init(baseUrl: String) {
-        self.baseUrl = baseUrl
+    init(session: URLSession = .shared) {
+        self.session = session
     }
     
     func makeRequest<T>(resource: Resource<T>, completion: @escaping (Result<T, ErrorResult>) ->()) -> URLSessionDataTask? {
         
         if !Reachability.isConnectedToNetwork() {
             completion(.failure(.noInternetConnection))
-            return nil
         }
         
         var newResouce = resource
@@ -31,13 +28,9 @@ class Networking {
             return spec
         }
         
-        let request = URLRequest(baseUrl: baseUrl, resource: newResouce)
+        let request = URLRequest(resource: newResouce)
         
-        let sessionConfig = URLSessionConfiguration.default
-        sessionConfig.timeoutIntervalForRequest = 30.0
-        sessionConfig.timeoutIntervalForResource = 60.0
-        
-        let task = URLSession.init(configuration: sessionConfig).dataTask(with: request) { data, response, error in
+        let task = session.dataTask(with: request) { data, response, error in
             // Parsing incoming data
             guard let response = response as? HTTPURLResponse else {
                 if let error = error {
@@ -73,6 +66,5 @@ class Networking {
         task.resume()
         
         return task
-        
     }
 }

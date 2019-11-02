@@ -22,7 +22,7 @@ final class SurveyService : SurveyServiceProtocol {
         // cancel previous request if already in progress
         cancelFetchData()
         
-        task = Networking.shared.makeRequest(resource: Resource.init(path: "surveys.json", method: .get, params: paging.dictionary ?? [:]), completion: completion)
+        task = Networking().makeRequest(resource: Resource.init(baseUrl: Configuration.BASE_URL, path: "surveys.json", method: .get, params: paging.dictionary ?? [:]), completion: completion)
     }
     
     func cancelFetchData() {
