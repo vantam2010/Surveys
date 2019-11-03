@@ -25,7 +25,6 @@
 		185725C9235A822000134279 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 185725C7235A822000134279 /* Main.storyboard */; };
 		185725CB235A822100134279 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 185725CA235A822100134279 /* Assets.xcassets */; };
 		185725CE235A822100134279 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 185725CC235A822100134279 /* LaunchScreen.storyboard */; };
-		185725D9235A822100134279 /* SurveysTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185725D8235A822100134279 /* SurveysTests.swift */; };
 		1859CCC7236B194D00087E88 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859CCC6236B194D00087E88 /* UIImage+Color.swift */; };
 		1859CCC9236B1CA700087E88 /* UIViewController+showError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1859CCC8236B1CA700087E88 /* UIViewController+showError.swift */; };
 		18F6AD18235AE5E900596A6D /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6AD03235AE5E900596A6D /* Survey.swift */; };
@@ -96,7 +95,6 @@
 		185725CD235A822100134279 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		185725CF235A822100134279 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		185725D4235A822100134279 /* SurveysTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SurveysTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		185725D8235A822100134279 /* SurveysTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveysTests.swift; sourceTree = "<group>"; };
 		185725DA235A822100134279 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1859CCC6236B194D00087E88 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		1859CCC8236B1CA700087E88 /* UIViewController+showError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+showError.swift"; sourceTree = "<group>"; };
@@ -244,7 +242,6 @@
 				1805B968236C1BE000E29175 /* Keychain */,
 				1805B967236C195000E29175 /* Networking */,
 				1805B960236C0F1400E29175 /* ViewModel */,
-				185725D8235A822100134279 /* SurveysTests.swift */,
 				185725DA235A822100134279 /* Info.plist */,
 			);
 			path = SurveysTests;
@@ -547,7 +544,6 @@
 				180C87EA236BCC5E00080112 /* KeychainServiceTests.swift in Sources */,
 				18F6AD68235E1E1B00596A6D /* SurveyListViewModelTests.swift in Sources */,
 				1805B96C236C1F4200E29175 /* SurveyTests.swift in Sources */,
-				185725D9235A822100134279 /* SurveysTests.swift in Sources */,
 				180AF783236C5EA300FAEBFD /* OauthTokenTests.swift in Sources */,
 				180AF78B236CDF6700FAEBFD /* NetworkingTests.swift in Sources */,
 			);
