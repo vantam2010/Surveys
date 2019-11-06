@@ -9,18 +9,16 @@
 import Foundation
 
 class URLSessionMock: URLSession {
-    typealias CompletionHandler = (Data?, URLResponse?, Error?) -> Void
-    
+    typealias Completion = (Data?, URLResponse?, Error?) -> Void
     // Properties that enable us to set exactly what data or error
     // we want our mocked URLSession to return for any request.
     var data: Data?
     var error: Error?
     var respone: URLResponse?
-    override func dataTask(with request: URLRequest, completionHandler: @escaping CompletionHandler) -> URLSessionDataTask {
+    override func dataTask(with request: URLRequest, completionHandler: @escaping Completion) -> URLSessionDataTask {
         let data = self.data
         let error = self.error
         let respone = self.respone
-        
         return URLSessionDataTaskMock {
             completionHandler(data, respone, error)
         }

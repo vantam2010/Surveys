@@ -10,19 +10,15 @@ import XCTest
 @testable import Surveys
 
 class OauthTokenTests: XCTestCase {
-    
     private var oauthToken: OauthToken!
-    
     override func setUp() {
         super.setUp()
         oauthToken = OauthToken.dummy
     }
-    
     override func tearDown() {
         oauthToken = nil
         super.tearDown()
     }
-    
     // Expected all properties has value
     func testOauthTokenModel() {
         XCTAssertEqual(oauthToken.accessToken, "accessToken", "Expected has accessToken.")

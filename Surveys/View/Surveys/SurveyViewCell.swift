@@ -9,30 +9,24 @@
 import UIKit
 
 class SurveyViewCell: UICollectionViewCell {
-    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
-    
     static let reuseIdentifier = "SurveyViewCell"
-    
     var survey: Survey? {
         didSet {
             guard let survey = survey else { return }
-            
             titleLabel.text = survey.title
             descLabel.text = survey.description
             indicator.color = ThemeManager.color.text
-            
             if let coverImageUrl = survey.coverImageUrl, coverImageUrl.isValidURL {
-                coverImageView.loadImageUsingCache(withUrl: "\(coverImageUrl)\(Configuration.HIGH_RESOLUTION_IMAGE_CONFIG)", resize: frame.size)
+                coverImageView.loadImageUsingCache(withUrl: "\(coverImageUrl)\(Configuration.hightResolutionImageConfig)", resize: frame.size)
             } else {
                 coverImageView.image = UIImage.imageWithColor(tintColor: ThemeManager.color.main)
             }
         }
     }
-    
     var isAnimating: Bool = false {
         didSet {
             if isAnimating {
@@ -45,16 +39,11 @@ class SurveyViewCell: UICollectionViewCell {
             }
         }
     }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         titleLabel.textColor = ThemeManager.color.text
         descLabel.textColor = ThemeManager.color.text
-        
         titleLabel.text = ""
         descLabel.text = ""
     }
-    
-    
 }

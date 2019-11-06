@@ -10,18 +10,14 @@ import UIKit
 
 @IBDesignable
 class SurveyButton: UIButton {
-    
     @IBInspectable var text: UIColor = ThemeManager.color.text { didSet { updatTextColor() }}
     @IBInspectable var background: UIColor = ThemeManager.color.highlight { didSet { updateBackgroundColor() }}
-    
     func updatTextColor() {
         tintColor = text
     }
-    
     func updateBackgroundColor() {
         backgroundColor = background
     }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = frame.height/2

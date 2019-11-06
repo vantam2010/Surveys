@@ -9,13 +9,12 @@
 import Foundation
 
 struct Configuration {
-    static let BASE_URL = "https://nimble-survey-api.herokuapp.com"
-    static let USER_NAME = "carlos@nimbl3.com"
-    static let PASSWORD = "antikera"
-    static let HIGH_RESOLUTION_IMAGE_CONFIG = "l"
-    
+    static let baseUrl = "https://nimble-survey-api.herokuapp.com"
+    static let username = "carlos@nimbl3.com"
+    static let password = "antikera"
+    static let hightResolutionImageConfig = "l"
     public static func getDomain() -> String {
-        let URL = NSURL(string: self.BASE_URL)
+        let URL = NSURL(string: self.baseUrl)
         guard let domain = URL?.host else { return "" }
         return domain
     }

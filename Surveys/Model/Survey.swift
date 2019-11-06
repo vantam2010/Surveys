@@ -13,14 +13,12 @@ class Survey: Decodable {
     let title: String?
     let description: String?
     let coverImageUrl: String?
-    
     enum CodingKeys: String, CodingKey {
         case id
         case title
         case description
         case coverImageUrl = "cover_image_url"
     }
-    
     init(id: String, title: String, description: String, coverImageUrl: String) {
         self.id = id
         self.title = title

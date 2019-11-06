@@ -9,47 +9,38 @@
 import UIKit
 
 extension UIColor {
-    
     convenience init(hex: String) {
-        self.init(hex: hex, alpha:1)
+        self.init(hex: hex, alpha: 1)
     }
-    
     convenience init(hex: String, alpha: CGFloat) {
         var hexWithoutSymbol = hex
         if hexWithoutSymbol.hasPrefix("#") {
             hexWithoutSymbol = hex.substring(1)
         }
-        
         let scanner = Scanner(string: hexWithoutSymbol)
-        var hexInt:UInt32 = 0x0
+        var hexInt: UInt32 = 0x0
         scanner.scanHexInt32(&hexInt)
-        
-        var r: UInt32?, g: UInt32?, b: UInt32?
-        switch (hexWithoutSymbol.count) {
+        var red: UInt32?, green: UInt32?, blue: UInt32?
+        switch hexWithoutSymbol.count {
         case 3: // #RGB
-            r = ((hexInt >> 4) & 0xf0 | (hexInt >> 8) & 0x0f)
-            g = ((hexInt >> 0) & 0xf0 | (hexInt >> 4) & 0x0f)
-            b = ((hexInt << 4) & 0xf0 | hexInt & 0x0f)
-            break
+            red = ((hexInt >> 4) & 0xf0 | (hexInt >> 8) & 0x0f)
+            green = ((hexInt >> 0) & 0xf0 | (hexInt >> 4) & 0x0f)
+            blue = ((hexInt << 4) & 0xf0 | hexInt & 0x0f)
         case 6: // #RRGGBB
-            r = (hexInt >> 16) & 0xff
-            g = (hexInt >> 8) & 0xff
-            b = hexInt & 0xff
-            break
+            red = (hexInt >> 16) & 0xff
+            green = (hexInt >> 8) & 0xff
+            blue = hexInt & 0xff
         default:
-            // TODO:ERROR
             break
         }
-        
-        guard let red = r, let green = g, let blue = b else {
+        guard let redValue = red, let greenValue = green, let blueValue = blue else {
             self.init()
             return
         }
-        
         self.init(
-            red: (CGFloat(red)/255),
-            green: (CGFloat(green)/255),
-            blue: (CGFloat(blue)/255),
-            alpha:alpha)
+            red: (CGFloat(redValue)/255),
+            green: (CGFloat(greenValue)/255),
+            blue: (CGFloat(blueValue)/255),
+            alpha: alpha)
     }
 }

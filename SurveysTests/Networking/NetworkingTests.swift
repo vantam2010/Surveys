@@ -15,14 +15,12 @@ class NetworkingTests: XCTestCase {
     fileprivate var networking: Networking!
     fileprivate var surveyData: Data?
     fileprivate let timeout: TimeInterval = 6
-    
     override func setUp() {
         super.setUp()
-        url = URL.init(string: Configuration.BASE_URL)
+        url = URL.init(string: Configuration.baseUrl)
         session = URLSessionMock()
         networking = Networking.init(session: session)
     }
-    
     override func tearDown() {
         session = nil
         networking = nil
@@ -50,11 +48,9 @@ extension NetworkingTests {
     func testFetchSurveysSuccessfulResponse_WithData() {
         session.data = readDataFromJSONFile(fileName: "SurveyList")
         session.respone = HTTPURLResponse.init(url: url, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: nil)
-        
         let expectation = XCTestExpectation(description: "Fetch data successful")
-        
-        _ = networking.makeRequest(resource: Resource<[Survey]>.init(baseUrl: Configuration.BASE_URL, path: "surveys.json", method: .get, params: [:])) { result in
-            
+        let resource = Resource<[Survey]>.init(baseUrl: Configuration.baseUrl, path: "surveys.json", method: .get, params: [:])
+        _ = networking.makeRequest(resource: resource) { result in
             if let error = result.error {
                 XCTFail(error.localizedDescription)
             } else {
@@ -65,18 +61,14 @@ extension NetworkingTests {
                 }
             }
         }
-        
         wait(for: [expectation], timeout: timeout)
     }
-    
     func testFetchSurveysSuccessful_ResponseNil() {
         session.data = nil
         session.respone = HTTPURLResponse.init(url: url, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: nil)
-        
         let expectation = XCTestExpectation(description: "Fetch data fail with nil data")
-        
-        _ = networking.makeRequest(resource: Resource<[Survey]>.init(baseUrl: Configuration.BASE_URL, path: "surveys.json", method: .get, params: [:])) { result in
-            
+        let resource = Resource<[Survey]>.init(baseUrl: Configuration.baseUrl, path: "surveys.json", method: .get, params: [:])
+        _ = networking.makeRequest(resource: resource) { result in
             if let error = result.error {
                 switch error {
                 case .resultNilOrEmpty:
@@ -88,7 +80,6 @@ extension NetworkingTests {
                 XCTFail("Expected data nil, but got value.")
             }
         }
-        
         wait(for: [expectation], timeout: timeout)
     }
 }
@@ -98,11 +89,9 @@ extension NetworkingTests {
     func testLoginSuccessfulResponse() {
         session.data = readDataFromJSONFile(fileName: "OauthToken")
         session.respone = HTTPURLResponse.init(url: url, statusCode: 200, httpVersion: "HTTP/1.1", headerFields: nil)
-        
         let expectation = XCTestExpectation(description: "Login successful")
-        
-        _ = networking.makeRequest(resource: Resource<OauthToken>.init(baseUrl: Configuration.BASE_URL, path: "oauth/token", method: .get, params: [:])) { result in
-            
+        let resource = Resource<OauthToken>.init(baseUrl: Configuration.baseUrl, path: "oauth/token", method: .get, params: [:])
+        _ = networking.makeRequest(resource: resource) { result in
             if let error = result.error {
                 XCTFail(error.localizedDescription)
             } else {
@@ -113,18 +102,14 @@ extension NetworkingTests {
                 }
             }
         }
-        
         wait(for: [expectation], timeout: timeout)
     }
-    
     func testLoginFail_ResponeUnauthorized() {
         session.data = nil
         session.respone = HTTPURLResponse.init(url: url, statusCode: 401, httpVersion: "HTTP/1.1", headerFields: nil)
-        
         let expectation = XCTestExpectation(description: "Expected Unauthorized respone")
-        
-        _ = networking.makeRequest(resource: Resource<OauthToken>.init(baseUrl: Configuration.BASE_URL, path: "oauth/token", method: .get, params: [:])) { result in
-
+        let resource = Resource<OauthToken>.init(baseUrl: Configuration.baseUrl, path: "oauth/token", method: .get, params: [:])
+        _ = networking.makeRequest(resource: resource) { result in
             if let error = result.error {
                 switch error {
                 case .unauthorized:
@@ -136,7 +121,6 @@ extension NetworkingTests {
                 XCTFail("Expected get error Unauthorized, but get value.")
             }
         }
-        
         wait(for: [expectation], timeout: timeout)
     }
 }

@@ -10,26 +10,21 @@ import XCTest
 @testable import Surveys
 
 class SurverServiceTests: XCTestCase {
-    
     fileprivate var service: SurveyServiceMock!
     fileprivate var paging: Paging!
     fileprivate let timeout: TimeInterval = 3
-    
     override func setUp() {
         super.setUp()
         service = SurveyServiceMock()
         paging = Paging(page: 1, totalPages: 10, totalResults: 20)
     }
-    
     override func tearDown() {
         service = nil
         paging = nil
         super.tearDown()
     }
-    
     func testFetchData() {
         let expectation = XCTestExpectation(description: "Get data success")
-        
         service.fetchData(paging: paging) { result in
             if result.value != nil {
                 expectation.fulfill()
@@ -39,7 +34,6 @@ class SurverServiceTests: XCTestCase {
                 XCTFail("Handle missing result")
             }
         }
-        
         wait(for: [expectation], timeout: timeout)
     }
 }

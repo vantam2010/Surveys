@@ -12,10 +12,8 @@ extension URL {
     init<T>(resource: Resource<T>) {
         var components = URLComponents(string: resource.baseUrl)!
         let resourceComponents = URLComponents(string: resource.path.absolutePath)!
-        
         components.path = Path(components.path).appending(path: Path(resourceComponents.path)).absolutePath
         components.queryItems = resourceComponents.queryItems
-        
         switch resource.method {
         case .get, .delete:
             var queryItems = components.queryItems ?? []
@@ -26,7 +24,6 @@ extension URL {
         default:
             break
         }
-        
         self = components.url!
     }
 }

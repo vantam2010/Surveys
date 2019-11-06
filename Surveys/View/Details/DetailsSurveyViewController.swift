@@ -9,13 +9,11 @@
 import UIKit
 
 class DetailsSurveyViewController: UIViewController {
-    
     var survey: Survey? {
         didSet {
             title = survey?.title
         }
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = ThemeManager.color.background

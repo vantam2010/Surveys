@@ -10,19 +10,18 @@ import UIKit
 
 extension UIWindow {
     var visibleViewController: UIViewController? {
-        return UIWindow.visibleVC(vc: self.rootViewController)
+        return UIWindow.visibleVC(controller: self.rootViewController)
     }
-    
-    static func visibleVC(vc: UIViewController?) -> UIViewController? {
-        if let navigationViewController = vc as? UINavigationController {
-            return UIWindow.visibleVC(vc: navigationViewController.visibleViewController)
-        } else if let tabBarVC = vc as? UITabBarController {
-            return UIWindow.visibleVC(vc: tabBarVC.selectedViewController)
+    static func visibleVC(controller: UIViewController?) -> UIViewController? {
+        if let navigationViewController = controller as? UINavigationController {
+            return UIWindow.visibleVC(controller: navigationViewController.visibleViewController)
+        } else if let tabBarVC = controller as? UITabBarController {
+            return UIWindow.visibleVC(controller: tabBarVC.selectedViewController)
         } else {
-            if let presentedVC = vc?.presentedViewController {
-                return UIWindow.visibleVC(vc: presentedVC)
+            if let presentedVC = controller?.presentedViewController {
+                return UIWindow.visibleVC(controller: presentedVC)
             } else {
-                return vc
+                return controller
             }
         }
     }

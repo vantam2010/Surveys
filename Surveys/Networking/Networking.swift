@@ -9,27 +9,20 @@
 import Foundation
 
 class Networking {
-    
     private let session: URLSession
     var commonParams: JSON = [:]
-    
     init(session: URLSession = .shared) {
         self.session = session
     }
-    
-    func makeRequest<T>(resource: Resource<T>, completion: @escaping (Result<T, ErrorResult>) ->()) -> URLSessionDataTask? {
-        
+    func makeRequest<T>(resource: Resource<T>, completion: @escaping (Result<T, ErrorResult>) -> Void ) -> URLSessionDataTask? {
         if !Reachability.isConnectedToNetwork() {
             completion(.failure(.noInternetConnection))
         }
-        
         var newResouce = resource
-        newResouce.params = newResouce.params.merging(commonParams) { spec, common in
+        newResouce.params = newResouce.params.merging(commonParams) { spec, _ in
             return spec
         }
-        
         let request = URLRequest(resource: newResouce)
-        
         let task = session.dataTask(with: request) { data, response, error in
             // Parsing incoming data
             guard let response = response as? HTTPURLResponse else {
@@ -45,7 +38,6 @@ class Networking {
                 completion(.failure(.other))
                 return
             }
-            
             if response.statusCode >= 200 && response.statusCode < 300 {
                 completion(Result(value: data.flatMap(resource.parse), or: .resultNilOrEmpty))
             } else if response.statusCode == 401 {
@@ -62,9 +54,7 @@ class Networking {
                 }
             }
         }
-        
         task.resume()
-        
         return task
     }
 }

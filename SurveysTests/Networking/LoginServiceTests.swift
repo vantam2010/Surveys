@@ -11,23 +11,18 @@ import XCTest
 @testable import Surveys
 
 class LoginServiceTests: XCTestCase {
-    
-    fileprivate var service : LoginServiceMock!
+    fileprivate var service: LoginServiceMock!
     fileprivate let timeout: TimeInterval = 3
-    
     override func setUp() {
         super.setUp()
         service = LoginServiceMock()
     }
-    
     override func tearDown() {
         service = nil
         super.tearDown()
     }
-    
     func testLoginSuccess() {
         service.shouldSuccess = true
-        
         let expectation = XCTestExpectation(description: "Login successfully")
 
         service.login { result in
@@ -39,19 +34,14 @@ class LoginServiceTests: XCTestCase {
                 XCTFail("Handle missing result")
             }
         }
-        
         wait(for: [expectation], timeout: timeout)
-        
         addTeardownBlock {
             self.service.shouldSuccess = false
         }
     }
-    
     func testLoginfail() {
         service.shouldSuccess = false
-        
         let expectation = XCTestExpectation(description: "Login fail")
-        
         service.login { result in
             if result.value != nil {
                 XCTFail("Expected nil, but it has value")
@@ -66,7 +56,6 @@ class LoginServiceTests: XCTestCase {
                 XCTFail("Handle missing result")
             }
         }
-        
         wait(for: [expectation], timeout: timeout)
     }
 }

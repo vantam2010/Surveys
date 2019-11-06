@@ -11,15 +11,11 @@ import Foundation
 extension URLRequest {
     init<T>(resource: Resource<T>) {
         let url = URL(resource: resource)
-        
         self.init(url: url)
-        
         httpMethod = resource.method.rawValue
-        
-        resource.headers.forEach{
+        resource.headers.forEach {
             setValue($0.value, forHTTPHeaderField: $0.key)
         }
-        
         switch resource.method {
         case .post, .put:
             httpBody = try? JSONSerialization.data(withJSONObject: resource.params, options: [])

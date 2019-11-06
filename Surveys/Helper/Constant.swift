@@ -20,7 +20,6 @@ enum ErrorResult: Error {
     case other
     case missingService
     case missingPaging
-    
     var localizedDescription: String {
         switch self {
         case .noInternetConnection: return "No Internet Connection."
@@ -34,7 +33,6 @@ enum ErrorResult: Error {
         case .other: return "Oops, something went wrong"
         case .missingService: return "Missing Service"
         case .missingPaging: return "Cancel Request"
-        
         }
     }
 }
@@ -43,7 +41,6 @@ enum KeychainError: Error {
     case string2DataConversionError
     case data2StringConversionError
     case unhandledError(message: String)
-    
     var localizedDescription: String {
         switch self {
         case .string2DataConversionError: return "String to Data conversion error"

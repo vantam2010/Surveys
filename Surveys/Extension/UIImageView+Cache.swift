@@ -11,14 +11,11 @@ import UIKit
 let imageCache = NSCache<NSString, UIImage>()
 
 extension UIImageView {
-    
-    func loadImageUsingCache(withUrl urlString : String, resize: CGSize? = nil) {
+    func loadImageUsingCache(withUrl urlString: String, resize: CGSize? = nil) {
         guard let url = URL(string: urlString) else {return}
-        
         self.image = UIImage.imageWithColor(tintColor: ThemeManager.color.main)
-        
         // check cached image
-        if let cachedImage = imageCache.object(forKey: urlString as NSString)  {
+        if let cachedImage = imageCache.object(forKey: urlString as NSString) {
             if let size = resize {
                 self.image = cachedImage.resizeImageUsingVImage(size: size)
             } else {
@@ -26,14 +23,12 @@ extension UIImageView {
             }
             return
         }
-        
         // if not, download image from url
-        URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+        URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
             if let error = error {
                 print(error)
                 return
             }
-            
             DispatchQueue.main.async {
                 if let data = data, let image = UIImage(data: data) {
                     if let size = resize {
@@ -45,7 +40,6 @@ extension UIImageView {
                     }
                 }
             }
-            
         }).resume()
     }
 }

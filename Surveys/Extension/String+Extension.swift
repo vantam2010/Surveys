@@ -18,11 +18,9 @@ extension String {
             return false
         }
     }
-    
     func substring(_ from: Int) -> String {
         return String(self[index(at: from)..<index(at: count)])
     }
-    
     func index(at offset: Int) -> String.Index {
         return index(startIndex, offsetBy: offset)
     }

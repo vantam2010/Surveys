@@ -16,14 +16,13 @@ struct ThemeColor {
 }
 
 struct ThemeFontSize {
-    let title:CGFloat = 17
-    let body:CGFloat = 14
+    let title: CGFloat = 17
+    let body: CGFloat = 14
 }
 
 struct ThemeManager {
     private static var themeColor: ThemeColor?
     private static var themeFontSize: ThemeFontSize?
-    
     static var color: ThemeColor {
         if let storedTheme = themeColor {
             return storedTheme
@@ -31,7 +30,6 @@ struct ThemeManager {
             return ThemeColor()
         }
     }
-    
     static var fontSize: ThemeFontSize {
         if let storedTheme = themeFontSize {
             return storedTheme

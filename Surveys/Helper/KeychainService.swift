@@ -25,44 +25,37 @@ struct KeychainService {
         guard let encodedToken = token.data(using: .utf8) else {
             throw KeychainError.string2DataConversionError
         }
-        
         // Instantiate a new default keychain query
-        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [kSecClassGenericPasswordValue, Configuration.getDomain(), Configuration.USER_NAME, encodedToken], forKeys: [kSecClassValue, kSecAttrServiceValue, kSecAttrAccountValue, kSecValueDataValue])
-        
+        let forKeys = [kSecClassValue, kSecAttrServiceValue, kSecAttrAccountValue, kSecValueDataValue]
+        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [kSecClassGenericPasswordValue, Configuration.getDomain(), Configuration.username, encodedToken], forKeys: forKeys)
         // Add the new keychain item
         let status = SecItemAdd(keychainQuery as CFDictionary, nil)
-        
         if status != errSecSuccess {
             throw error(from: status)
         }
     }
-    
     func update(token: String) throws {
         guard let encodedToken = token.data(using: .utf8) else {
             throw KeychainError.string2DataConversionError
         }
-        
         // Instantiate a new default keychain query
-        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [kSecClassGenericPasswordValue, Configuration.getDomain(), Configuration.USER_NAME], forKeys: [kSecClassValue, kSecAttrServiceValue, kSecAttrAccountValue])
-        
+        let forKeys = [kSecClassValue, kSecAttrServiceValue, kSecAttrAccountValue]
+        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [kSecClassGenericPasswordValue, Configuration.getDomain(), Configuration.username], forKeys: forKeys)
         let status = SecItemUpdate(keychainQuery as CFDictionary, [kSecValueDataValue: encodedToken] as CFDictionary)
-        
         if status != errSecSuccess {
             throw error(from: status)
         }
     }
-    
     func getToken() throws -> String? {
         // Instantiate a new default keychain query
         // Tell the query to return a result
         // Limit our results to one item
-        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [kSecClassGenericPasswordValue, Configuration.getDomain(),  Configuration.USER_NAME, kCFBooleanTrue, kSecMatchLimitOneValue], forKeys: [kSecClassValue, kSecAttrServiceValue, kSecAttrAccountValue, kSecReturnDataValue, kSecMatchLimitValue])
-        
-        var dataTypeRef :AnyObject?
-        
+        let objects = [kSecClassGenericPasswordValue, Configuration.getDomain(), Configuration.username, kCFBooleanTrue, kSecMatchLimitOneValue] as [Any]
+        let forKeys = [kSecClassValue, kSecAttrServiceValue, kSecAttrAccountValue, kSecReturnDataValue, kSecMatchLimitValue]
+        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: objects, forKeys: forKeys)
+        var dataTypeRef: AnyObject?
         // Search for the keychain items
         let status: OSStatus = SecItemCopyMatching(keychainQuery, &dataTypeRef)
-        
         switch status {
         case errSecSuccess:
             guard let retrievedData = dataTypeRef as? Data,
@@ -77,27 +70,23 @@ struct KeychainService {
             throw error(from: status)
         }
     }
-    
     func removeTokend() throws {
         // Instantiate a new default keychain query
-        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [kSecClassGenericPasswordValue, Configuration.getDomain(),  Configuration.USER_NAME, kCFBooleanTrue], forKeys: [kSecClassValue, kSecAttrServiceValue, kSecAttrAccountValue, kSecReturnDataValue])
-        
+        let forKeys = [kSecClassValue, kSecAttrServiceValue, kSecAttrAccountValue, kSecReturnDataValue]
+        let keychainQuery: NSMutableDictionary = NSMutableDictionary(objects: [kSecClassGenericPasswordValue, Configuration.getDomain(), Configuration.username, kCFBooleanTrue], forKeys: forKeys)
         // Delete any existing items
         let status = SecItemDelete(keychainQuery as CFDictionary)
         guard status == errSecSuccess || status == errSecItemNotFound else {
             throw error(from: status)
         }
     }
-    
     func error(from status: OSStatus) -> KeychainError {
         var message = NSLocalizedString("Unhandled Error", comment: "")
-        
         if #available(iOS 11.3, *) {
             if let errorMessage = SecCopyErrorMessageString(status, nil) as String? {
                 message = errorMessage
             }
         }
-        
         return KeychainError.unhandledError(message: message)
     }
 }

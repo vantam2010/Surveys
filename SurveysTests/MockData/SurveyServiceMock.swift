@@ -24,7 +24,6 @@ extension SurveyServiceMock: SurveyServiceProtocol {
             } else {
                 completion(.success(Survey.list))
             }
-            
         } else {
             completion(.failure(.resultNilOrEmpty))
         }
@@ -36,7 +35,6 @@ extension Survey {
     static let dummy: Survey = {
         return Survey.init(id: "id", title: "title", description: "description", coverImageUrl: "coverImageUrl")
     }()
-    
     static let list: [Survey] = {
         return [Survey](repeating: Survey.dummy, count: 20)
     }()
